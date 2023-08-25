@@ -1,0 +1,43 @@
+@use "sass:math";
+
+table,
+%table {
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	table-layout: auto;
+	margin-bottom: $gutter--md;
+	font-size: $font-size--sm;
+	color: inherit;
+
+	p {
+		margin: 0 0;
+		font-size: $font-size--sm;
+	}
+
+	th {
+		// @extend small;
+		// text-transform: uppercase;
+		vertical-align: middle;
+	}
+
+	th,
+	td {
+		padding: $gutter--sm $gutter--md;
+		text-align: left;
+		vertical-align: top;
+	}
+	tr {
+		position: relative;
+	}
+
+	tr td:first-of-type {
+		padding-left: 0;
+	}
+
+	tr td:last-of-type {
+		padding-right: 0;
+	}
+	
+}

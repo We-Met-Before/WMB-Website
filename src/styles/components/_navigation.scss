@@ -1,0 +1,14 @@
+.nav {
+	&__link {
+        padding: $gutter--sm 0;
+        opacity: 1;
+        transition: $transition--bezier;
+
+        &:hover {
+            opacity: .3;
+        }
+        &:not(:last-child):after {
+            content: ', '
+        }
+    }
+}

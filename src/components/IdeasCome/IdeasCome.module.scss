@@ -1,0 +1,55 @@
+@import "../../styles/abstracts";
+
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.bg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate3d(0, -50%, 0);
+  width: 100%;
+  height: 150%;
+
+  z-index: -1;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.content {
+  display: flex;
+  gap: $gutter--lg;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    max-width: 400px;
+    opacity: .5;
+  }
+}
+
+.alternating {
+  position: relative;
+  margin-right: .5ch;
+
+  &__first, &__second {
+    display: inline-block;
+  }
+
+  &__second {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+}

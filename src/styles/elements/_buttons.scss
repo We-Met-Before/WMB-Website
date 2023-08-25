@@ -1,0 +1,28 @@
+$buttons: "input[type='button'], input[type='reset'], input[type='submit']";
+
+.button,
+#{$buttons},
+%button {
+	font-family: inherit;
+	font-size: 1rem;
+	font-weight: 300;
+	display: inline-flex !important;
+	justify-content: center;
+	align-items: center;
+	padding: $gutter--sm*1.5 $gutter--md;
+	cursor: pointer;
+	transition: $transition--bezier;
+	font-weight: 600;
+	border: none;
+	position: relative;
+	background: transparent;
+	text-transform: lowercase;
+	border-radius: 5rem;
+	border: 1px solid color(white, base);
+	background-color: transparent;
+
+	&:hover {
+		background-color: color(white, base);
+		color: $color--text-dark;
+	}
+}

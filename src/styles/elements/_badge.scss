@@ -1,0 +1,23 @@
+@use "sass:math";
+
+.badge {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	font-size: $font-size--xs;
+	font-weight: inherit;
+	padding: math.div($gutter--sm, 2) $gutter--sm;
+	background-color: $color--bg-badge;
+	color: $color--text-badge;
+	z-index: 2;
+	border-radius: 0;
+	border: none;
+	border-radius: 0;
+	text-transform: none;
+
+	&--position {
+		position: absolute;
+		top: math.div($gutter--sm, 2);
+		right: math.div($gutter--sm, 2);
+	}
+}

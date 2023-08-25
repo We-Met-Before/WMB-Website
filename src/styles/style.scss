@@ -1,0 +1,50 @@
+/*!
+Theme Name: ST supertheme
+Theme URI: https://vitrinekast.xyz/
+Author: Vitrinekast
+Author URI: https://vitrinekast.xyz/
+Description: Description
+Version: 4.0.93
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: ST
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+*/
+
+@import 'abstracts';
+
+
+@import 'utils/accessibility';
+@import 'utils/box-sizing';
+@import 'utils/normalize';
+@import 'utils/positioning';
+@import 'utils/grid';
+@import 'utils/grid-flex';
+
+@import 'base/typography';
+@import 'base/flex';
+@import 'base/layout';
+
+@import 'elements/badge';
+@import 'elements/buttons';
+@import 'elements/fields';
+@import 'elements/branding';
+@import 'elements/gallery';
+@import 'elements/media';
+@import 'elements/tables';
+
+@import 'components/hero';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/navigation';
+@import 'components/form';
+@import 'components/accordion';
+@import 'components/lists';
+@import 'components/article';
+
+@import 'components/card';
+
+@import 'layouts/page';

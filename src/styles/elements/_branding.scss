@@ -1,0 +1,11 @@
+.branding {
+  &--text {
+    color: color(white, beige);
+
+    span:last-child {
+      opacity: 0.3;
+      font-weight: $font-weight--light;
+      margin-left: $gutter--sm;
+    }
+  }
+}

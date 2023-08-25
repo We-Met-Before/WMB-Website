@@ -1,0 +1,62 @@
+@import "../../styles/abstracts";
+
+.title {
+  &__line {
+    overflow: hidden;
+    display: block;
+  }
+  .char {
+    display: inline-block;
+  }
+}
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  padding: $gutter--xl;
+  z-index: 1;
+}
+.content {
+  max-width: calc(50% - #{$grid--gutter * 2});
+  width: 100%;
+}
+
+.body {
+  max-width: 400px;
+  margin-left: auto;
+  margin-top: $gutter--lg;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100% - #{$grid--gutter * 2});
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    left 49%,
+    left 90%,
+    from(rgb(0, 0, 0)),
+    to(rgba(0, 0, 0, 0))
+  );
+  img {
+    height: 100%;
+    object-fit: contain;
+    object-position: right;
+  }
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: $gutter--sm;
+  align-items: flex-end;
+}

@@ -1,0 +1,25 @@
+@import "../../styles/abstracts";
+
+.collapsable {
+  border-bottom: 1px solid rgba(color(white, base),.1);
+  padding: $gutter--md * 1.5;
+  cursor: pointer;
+
+  &__content {
+    margin-top: $gutter--md * 1.5;
+    opacity: .5;
+  }
+
+  &:last-of-type {
+    border: none;
+  }
+}
+
+.list {
+  margin-top: $gutter--lg;
+  margin-bottom: $gutter--lg;
+}
+
+.title {
+  margin-left: -25%;
+}

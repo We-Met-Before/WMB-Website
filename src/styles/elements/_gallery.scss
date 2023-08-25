@@ -1,0 +1,38 @@
+@use "sass:math";
+
+.gallery {
+	display: grid;
+	grid-template-columns: calc(50vw - #{math.div($grid--container, 2)}) 1fr $grid--gutter 1fr calc(
+			50vw - #{math.div($grid--container, 2)}
+		);
+	margin-top: $gutter--lg;
+	margin-bottom: $gutter--xl;
+	overflow: hidden;
+	position: relative;
+	grid-row-gap: $grid--gutter * 2;
+
+	&__item {
+		overflow: hidden;
+	}
+
+	&__title {
+		grid-column: 2 / span 3;
+	}
+
+	&--vertical {
+		width: 100%;
+
+		.gallery__item {
+			margin-bottom: $gutter--lg;
+			display: block;
+		}
+
+		@include break($break--sm, "max") {
+			max-height: 70vh;
+
+			.gallery__item {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

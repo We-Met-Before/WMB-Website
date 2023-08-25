@@ -1,6 +1,16 @@
-@import 'base/reset.scss';
-@import 'base/variables.scss';
+@font-face {
+  font-family: TomatoMedium;
+  src: url("/fonts/TomatoGrotesk-Medium.woff");
+}
 
-@import 'layout.scss';
+@font-face {
+  font-family: TomatoRegular;
+  src: url("/fonts/TomatoGrotesk-Regular.woff");
+}
 
-@import 'services/carousel.scss';
+@import "base/_reset.scss";
+@import "base/_variables.scss";
+
+@import "_layout.scss";
+
+@import "services/carousel.scss";

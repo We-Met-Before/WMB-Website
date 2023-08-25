@@ -1,0 +1,38 @@
+@import 'variables/color';
+@import 'variables/typography.scss';
+
+@function color($base, $shade: base) {
+	$color: map-get(map-get($colors, $base), $shade);
+	@return $color;
+}
+
+$border-width: 2px;
+$box-shadow--border: 0 0 0 $border-width rgba(0, 0, 0, 1);
+$box-shadow--base: 0 5px 20px rgba(147, 152, 158, 0.15);
+
+$transition--base: 0.2s ease-in;
+$transition--bezier: all 0.5s cubic-bezier(0.2, 0, 0, 1) 0s;
+$transition--bezier-timing: cubic-bezier(0.2, 0, 0, 1) 0s;
+
+$gutter--xs: 0.25rem;
+$gutter--sm: 0.5rem;
+$gutter--md: 1rem;
+$gutter--lg: 2rem;
+$gutter--xl: 4rem;
+
+$logo--base: 3.125rem;
+
+$icon-url: 'assets/icons/';
+$icon-size--base: 1em;
+$icon-size--lg: $icon-size--base * 1.5;
+$icon-size--sm: $icon-size--base * 0.75;
+$icon-color: call(get-function('color'), primary, base);
+$icon-color--light: call(get-function('color'), light, base);
+$icon-color--dark: call(get-function('color'), dark, base);
+
+// $icons: 'link', 'arrow', 'close', 'arrow-back', 'arrow-diagonal', 'expand';
+// $icons;
+
+$grid--col-count: 12;
+$grid--gutter: 32px;
+$grid--container: 1300px;

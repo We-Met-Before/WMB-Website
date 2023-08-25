@@ -1,0 +1,62 @@
+@mixin font($font-family, $font-file, $font-weight) {
+	@font-face {
+		font-family: $font-family;
+		src: url($font-file + '.woff');
+		src: url($font-file + '.eot?#iefix') format('embedded-opentype'),
+			// url($font-file + '.ttf') format('truetype'),
+			url($font-file + '.svg#' + $font-family) format('svg');
+		font-weight: $font-weight;
+		font-style: normal;
+		font-display: fallback;
+	}
+}
+
+$font-size--base: 1.25rem;
+$font-size--xs: 0.8rem;
+$font-size--sm: 1rem;
+$font-size--md: 1.25rem;
+$font-size--lg: 1.5rem;
+$font-size--h4: 1.5rem;
+$font-size--h3: 1.75rem;
+$font-size--h2: 3rem;
+$font-size--h1: 9.3rem;
+
+$font-size--break-sizing: 0.8;
+
+$font-weight--light: 300;
+$font-weight--base: 400;
+$font-weight--bold: 700;
+$font-weight--heading: 600;
+$font--transform-heading: none;
+$line-height--base: 1.5;
+$line-height--heading: 1.1;
+$line-height--lg: 1.125;
+$font--baseline: $line-height--base * 0.5rem;
+
+$heading_1: 'h1, .h1, %h1';
+$heading_2: 'h2, .h2, %h2';
+$heading_3: 'h3, .h3, %h3';
+$heading_4: 'h4, .h4, %h4';
+$heading_5: 'h5, .h5, %h5';
+$heading_6: 'h6, .h6, %h6';
+$headings: $heading_1 + ', ' + $heading_2 + ', ' + $heading_3 + ', ' +
+	$heading_4 + ', ' + $heading_5 + ', ' + $heading_6;
+
+@include font(
+	'TomatoGrotesk',
+	'/fonts/TomatoGrotesk-Medium',
+	$font-weight--base
+);
+@include font(
+	'TomatoGrotesk',
+	'/assets/fonts/SpaceGrotesk-Bold',
+	$font-weight--bold
+);
+// stylelint-disable value-keyword-case
+$font--main: 'TomatoGrotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+	Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+$font--display: 'TomatoGrotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+	Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+// stylelint-enable value-keyword-case
+$font--code: monaco, consolas, 'Andale Mono', 'DejaVu Sans Mono', monospace;
+$font--pre: 'Courier 10 Pitch', courier, monospace;
