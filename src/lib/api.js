@@ -17,13 +17,14 @@ export async function getPostById(id, source) {
   );
 
   const matterResult = matter(await fs.promises.readFile(fullPath, "utf8"));
-
+    
   const processedContent = await remark()
     .use(html)
     .process(matterResult.content);
 
 
   return {
+    ...matterResult.data,
     title: data.title,
     id: realId,
     content: processedContent.toString()

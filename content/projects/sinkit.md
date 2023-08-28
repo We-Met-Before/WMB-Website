@@ -1,8 +1,8 @@
 ---
-image: assets/images/02072023/sinkit.jpg
+image: images/projects/sinkit.jpg
 title: Sinkit
 URL: https://www.sinkit.org/
-
+excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing e
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.

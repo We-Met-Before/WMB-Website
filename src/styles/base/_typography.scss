@@ -208,6 +208,13 @@ figure figcaption {
   &--right {
     text-align: right;
   }
+
+  &--clamp {
+    display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  }
 }
 
 

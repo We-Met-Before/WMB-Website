@@ -1,5 +1,5 @@
 ---
-image: assets/images/02072023/plantible.jpg
+image: images/projects/plantible.jpg
 title: Plantible Foods
 Type: Development
 URL: https://www.plantiblefoods.com/

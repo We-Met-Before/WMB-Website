@@ -13,7 +13,7 @@ export default async function home() {
 
   return (
     <>
-      <WorkList />
+      <WorkList projects={projects} />
       
       {projects.length > 0 && projects.map(project => {
           const { id, date, title, content } = project

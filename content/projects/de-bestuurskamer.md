@@ -1,9 +1,9 @@
 ---
-image: assets/images/02072023/de-bestuurskamer-new.jpg
+image: images/projects/de-bestuurskamer-new.jpg
 title: De Bestuurskamer
 Type: Branding, Design & Development
 URL: https://www.debestuurskamer.nl/
-
+excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing e
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.
