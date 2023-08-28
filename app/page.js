@@ -7,6 +7,7 @@ import IdeasCome from "../src/components/IdeasCome/IdeasCome";
 import WorkList from "../src/components/WorkList/WorkList";
 import Footer from "../src/components/Footer/Footer";
 import Hero from "../src/components/Hero/Hero";
+import "src/styles/style.scss";
 
 export default function home() {
  

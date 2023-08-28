@@ -1,6 +1,5 @@
-
 import Script from "next/script";
-import "src/styles/style.scss";
+// import "src/styles/style.scss";
 
 export const metadata = {
   title: "Home",
@@ -10,11 +9,9 @@ export const metadata = {
   },
 };
 
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      
       <body>
         <main>{children}</main>
       </body>
