@@ -1,23 +1,37 @@
-import Image from "next/image";
-import Link from "next/link";
-import HeroBGImage from "public/images/hero__background.png";
+import { getAllProjects } from "../src/lib/api";
+import "src/styles/style.scss";
 import AboutUsCompact from "../src/components/AboutUsCompact/AboutUsCompact";
-import Services from "../src/components/Services/Services";
-import IdeasCome from "../src/components/IdeasCome/IdeasCome";
-import WorkList from "../src/components/WorkList/WorkList";
 import Footer from "../src/components/Footer/Footer";
 import Hero from "../src/components/Hero/Hero";
-import "src/styles/style.scss";
+import IdeasCome from "../src/components/IdeasCome/IdeasCome";
+import Services from "../src/components/Services/Services";
+import WorkList from "../src/components/WorkList/WorkList";
+import Link from "next/link";
 
-export default function home() {
- 
+export default async function home() {
+  const projects = await getAllProjects();
+
   return (
     <>
+      <WorkList />
+      
+      {projects.length > 0 && projects.map(project => {
+          const { id, date, title, content } = project
+          return (
+            <li key={id}>
+              <Link href={`/projects/${id}`}>
+                {date} - {title}
+              </Link>
+              
+              {/* <div dangerouslySetInnerHTML={{ __html: content }} /> */}
+
+            </li>
+          )
+        })}
       <Hero />
       <AboutUsCompact />
       <Services />
       <IdeasCome />
-      <WorkList />
       <Footer />
     </>
   );

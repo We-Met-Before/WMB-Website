@@ -1,11 +1,10 @@
 "use client";
 
-import Image from "next/image";
-import React, { useState, useEffect } from "react";
-import { gsap } from "gsap";
-import Splitting from "splitting";
-import Script from "next/script";
 import { Splide } from "@splidejs/splide";
+import { gsap } from "gsap";
+import Link from "next/link";
+import Script from "next/script";
+import { useEffect, useState } from "react";
 
 function AboutContent() {
   const [isMobile, setIsMobile] = useState(false);
@@ -898,13 +897,14 @@ function AboutContent() {
 
       <header id="mbMenu">
         <div className="mbMenuInner">
-          <button onClick={() => goTo(0)} className="button mbMenuLogo">
+          <Link href="/" className="button mbMenuLogo">
             <img
               className="logoWmb mark"
               src="about/assets/graphics/logo-mark.svg"
               alt="We Met Before Logo"
             />
-          </button>
+          </Link>
+
           <nav className="mbNavMenu">
             <ul className="mbNavList">
               <li className="mbNavItem">

@@ -18,7 +18,6 @@ export default function Hero() {
   useEffect(() => {
     if (titleRef.current) {
       let splitResult = Splitting({ target: titleRef.current, by: "chars" });
-      console.log(splitResult[0].chars);
 
       Rellax(imageRef.current);
 
