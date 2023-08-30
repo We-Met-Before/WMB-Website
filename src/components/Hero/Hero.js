@@ -4,10 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./Hero.module.scss";
 import React, { useEffect, useRef } from "react";
-import HeroBGImage from "public/images/hero__background.png";
 import Splitting from "splitting";
 import { gsap } from "gsap";
 import Rellax from "rellax";
+import NavBar from "../NavBar/NavBar";
 
 export default function Hero() {
   const titleRef = useRef(null);
@@ -22,7 +22,6 @@ export default function Hero() {
       Rellax(imageRef.current);
 
       var tl = gsap.timeline();
-      
 
       tl.from(splitResult[0].chars, {
         y: "100%",
@@ -37,13 +36,16 @@ export default function Hero() {
         duration: 1,
       });
 
-
-      tl.from(bodyRef.current, {
-        opacity: 0,
-        y: 32,
-        duration: 1,
-        stagger: 1
-      }, "<-1");
+      tl.from(
+        bodyRef.current,
+        {
+          opacity: 0,
+          y: 32,
+          duration: 1,
+          stagger: 1,
+        },
+        "<-1"
+      );
 
       console.log("oi");
     }
@@ -52,21 +54,30 @@ export default function Hero() {
   return (
     <header className={styles.hero}>
       <div className={styles.bg}>
-        <Image src={HeroBGImage} priority={true} alt="deco" ref={imageRef} data-rellax-speed="4" />
+        {/* <Image src={HeroBGImage} priority={true} alt="deco" ref={imageRef} data-rellax-speed="4" /> */}
+        <video autoPlay muted playsInline>
+          <source
+            src="https://rotato.netlify.app/alpha-demo/movie-hevc.mov"
+            type='video/mp4; codecs="hvc1"'
+          />
+          <source src="videos/Header_Cropped_WEBM.webm" type="video/webm" />
+        </video>
       </div>
 
       <div className={styles.content}>
-        <h1 className={styles.title} ref={titleRef}>
+        <h1 className={`${styles.title} d--none--sm`} ref={titleRef}>
           <span className={styles.title__line}>Because</span>
           <span className={`${styles.title__line} text--center`}>we met</span>
           <span className={`${styles.title__line} text--right`}>before</span>
         </h1>
+
+        <h1 className="d--none d--sm" ref={titleRef}>
+          Because we met before
+        </h1>
         <div className={styles.body} ref={bodyRef}>
-          <p className="text--light" >
-            We believe in creating value behind your identity, a story that
-            inspires the right people, something that stands out. A story that
-            is not that similar to others. Find us exploring your golden circle
-            and let us translate your image to an inclusive brandguide.
+          <p className="text--light">
+            Based on your Visual Identity and/or brandguide we start creating a
+            webdesign and forge your vision into an online pressence.
           </p>
 
           <Link className="hero__cta button" href="#more">
@@ -76,27 +87,7 @@ export default function Hero() {
       </div>
 
       <div className={styles.navbar}>
-        <nav className="navbar">
-          <div className="hero__branding branding--text">
-            <span>WMB</span>
-            <span>Creative Studio</span>
-          </div>
-
-          <ul className="hero__nav nav">
-            <Link className="nav__link" href="#services">
-              Services
-            </Link>
-            <Link className="nav__link" href="about/index.html">
-              About
-            </Link>
-            <Link className="nav__link" href="#work">
-              Work
-            </Link>
-            <Link className="nav__link" href="contact">
-              Contact
-            </Link>
-          </ul>
-        </nav>
+        <NavBar />
       </div>
     </header>
   );

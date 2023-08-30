@@ -1,0 +1,119 @@
+@use "sass:math";
+@import "../../styles/abstracts";
+
+.navbar {
+  @include break("sm", "max") {
+    position: absolute;
+    top: 0;
+    padding: $gutter--md $gutter--md * 1.5;
+    width: 100%;
+    left: 0;
+    border-bottom: 1px solid #22282f;
+    display: flex;
+
+    justify-content: space-between;
+  }
+}
+
+.button {
+  -webkit-appearance: none;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  padding: $gutter--sm;
+
+  @include break("sm", "min") {
+    display: none;
+  }
+
+  &--active {
+    .icon {
+      transform: rotate(90deg);
+    }
+
+    & .icon__bar {
+      &:nth-of-type(1) {
+        transform: scaleX(0);
+      }
+
+      &:nth-of-type(2) {
+        transform: translate3d(0, 0, 0) rotate(45deg);
+      }
+
+      &:nth-of-type(3) {
+        transform: translate3d(0, 0%, 0) rotate(-45deg);
+      }
+    }
+  }
+
+  &:not(.button--active):hover .icon__bar {
+    opacity: 0.8;
+
+    &:nth-of-type(1) {
+      transform: scaleX(0.7);
+    }
+
+    &:nth-of-type(2) {
+      transform: translate3d(2px, -200%, 0);
+    }
+
+    &:nth-of-type(3) {
+      transform: translate3d(-2px, 200%, 0);
+    }
+  }
+}
+
+.icon {
+  position: relative;
+  transform: scale(1);
+  transition: $transition--bezier;
+  background-color: transparent !important;
+  width: $icon-size--base;
+  height: $icon-size--base;
+
+  &__bar {
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background-color: color(white, base);
+    height: math.div($icon-size--base, 8);
+    position: absolute;
+    transition: $transition--bezier;
+    opacity: 1;
+    top: calc(50% - #{math.div($icon-size--base, 16)});
+
+    &:nth-of-type(1) {
+      transform: translate3d(0, 0, 0);
+    }
+
+    &:nth-of-type(2) {
+      transform: translate3d(0, -200%, 0);
+    }
+
+    &:nth-of-type(3) {
+      transform: translate3d(0, 200%, 0);
+    }
+  }
+}
+
+.menu {
+  background-color: black;
+  padding-top: $gutter--md;
+  padding-bottom: $gutter--md;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__link {
+    margin: $gutter--sm 0;
+    padding: $gutter--md;
+  }
+}

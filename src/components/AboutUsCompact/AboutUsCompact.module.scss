@@ -8,6 +8,10 @@
   margin-top: $gutter--lg;
   margin-bottom: $gutter--lg;
 
+  @include break("sm", "max") {
+    justify-content: center;
+  }
+
   &:hover {
     .list__item {
       margin-left: $gutter--sm * -0.5;
@@ -34,6 +38,12 @@
   border: 2px solid color(black, base);
   margin-left: $gutter--md * -1;
 
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   &:first-of-type {
     margin-left: 0;
   }
@@ -43,10 +53,4 @@
       transform: rotate(#{5 * $i}deg);
     }
   }
-}
-
-.list__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }

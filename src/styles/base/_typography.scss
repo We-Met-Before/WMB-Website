@@ -10,7 +10,7 @@ html {
   --font-size--h4: #{$font-size--h4};
   --font-size--h3: #{$font-size--h3};
   --font-size--h2: #{$font-size--h2};
-  --font-size--h1: #{$font-size--h1};
+  --font-size--h1: 5rem;
   --font-size--md: #{$font-size--md};
   --font-size--base: #{$font-size--base};
 
@@ -18,18 +18,22 @@ html {
     --font-size--h4: #{$font-size--h4};
     --font-size--h3: #{$font-size--h3};
     --font-size--h2: #{$font-size--h2 * 0.7};
-    --font-size--h1: #{$font-size--h1 * 0.7};
+    --font-size--h1: 5rem;
     --font-size--md: #{$font-size--md};
-    --font-size--base: #{$font-size--base};
+    --font-size--base: 1rem;
   }
 
   @include break("sm", "max") {
     --font-size--h4: #{$font-size--h4};
     --font-size--h3: #{$font-size--h3};
     --font-size--h2: #{$font-size--h2 * 0.6};
-    --font-size--h1: #{$font-size--h1 * 0.5};
+    --font-size--h1: 2.5rem;
     --font-size--md: #{$font-size--md};
     --font-size--base: #{$font-size--base};
+  }
+
+  @include break("lg", "min") {
+    --font-size--h1: #{$font-size--h1};
   }
 }
 
@@ -69,6 +73,8 @@ h1,
 .h1,
 %h1 {
   font-size: var(--font-size--h1);
+  font-weight: 300;
+  line-height: 1;
 }
 
 h2,
@@ -218,7 +224,7 @@ figure figcaption {
 }
 
 
-.char {
+.char, .word {
   display: inline-block;
 }
 .line {

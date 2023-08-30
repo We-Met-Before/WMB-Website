@@ -1,7 +1,8 @@
 .branding {
   &--text {
     color: color(white, beige);
-
+    text-align: right;
+    margin: $gutter--sm 0;
     span:last-child {
       opacity: 0.3;
       font-weight: $font-weight--light;

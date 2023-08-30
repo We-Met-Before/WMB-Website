@@ -5,6 +5,7 @@ import { remark } from "remark";
 import html from "remark-html";
 
 export const DIR_PROJECTS = "content/projects";
+export const DIR_PEOPLE = "content/people";
 
 export async function getPostById(id, source) {
   if(!source) source = DIR_PROJECTS;
@@ -42,4 +43,12 @@ export async function getAllProjects() {
     })
   );
   return projects;
+}
+
+export async function getAllPeople() {
+  return await Promise.all(
+    fs.readdirSync(DIR_PEOPLE).map((id) => {
+      return getPostById(id, DIR_PEOPLE);
+    })
+  );
 }

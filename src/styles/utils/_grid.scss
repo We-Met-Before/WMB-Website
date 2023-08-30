@@ -7,14 +7,14 @@
   width: 100%;
 
   @media only screen and (max-width: $grid--container) {
-    max-width: 100%;
+    max-width: calc(100% - $grid--gutter - $grid--gutter);;
     margin-left: $grid--gutter;
     margin-right: $grid--gutter;
   }
 
   &--full {
     @extend .container;
-    max-width: 100%;
+    max-width: calc(100% - $grid--gutter - $grid--gutter);
     margin-left: $grid--gutter;
     margin-right: $grid--gutter;
   }

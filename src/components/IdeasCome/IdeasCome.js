@@ -3,7 +3,7 @@
 import { gsap } from "gsap";
 import Image from "next/image";
 import Link from "next/link";
-import IdeasBGImage from "public/images/ideas__background.png";
+import IdeasBGImage from "public/images/WMB_MID_ON.png";
 import { useEffect, useRef } from "react";
 import styles from "./IdeasCome.module.scss";
 
@@ -15,7 +15,6 @@ export default function IdeasCome() {
       gsap.set(alternatingRef.current.children, {
         opacity: 0,
       });
-
       let time = 1;
       const animOptions = {
         opacity: 1,

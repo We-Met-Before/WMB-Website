@@ -1,36 +1,55 @@
 @import "../../styles/abstracts";
 
-.title {
-  &__line {
-    overflow: hidden;
-    display: block;
-  }
-  .char {
-    display: inline-block;
-  }
-}
-
 .hero {
-  min-height: 100vh;
   position: relative;
+  min-height: 100vh;
   display: flex;
   padding: $gutter--xl;
   z-index: 1;
+
+  @include break("md", "max") {
+    padding: $gutter--lg;
+  }
+
+  @include break("sm") {
+    flex-direction: column;
+  }
 }
+
 .content {
-  max-width: calc(50% - #{$grid--gutter * 2});
   width: 100%;
+
+  @include break("sm", "min") {
+    max-width: calc(50% - #{$grid--gutter * 2});
+  }
+
+  @include break("sm") {
+    padding-top: 50vh;
+  }
 }
 
 .body {
-  max-width: 400px;
-  margin-left: auto;
   margin-top: $gutter--lg;
   display: flex;
   gap: 2rem;
   flex-direction: column;
   align-items: flex-start;
+
+  @include break("sm", "min") {
+    max-width: 400px;
+    margin-left: auto;
+  }
 }
+
+.title {
+  text-wrap: balance;
+
+  &__line {
+    overflow: hidden;
+    display: block;
+  }
+}
+
 .bg {
   position: absolute;
   top: 0;
@@ -46,11 +65,32 @@
     from(rgb(0, 0, 0)),
     to(rgba(0, 0, 0, 0))
   );
-  img {
-    height: 100%;
+
+  img,
+  video {
+    height: 120%;
+    width: 120%;
     object-fit: contain;
     object-position: right;
+
+    @include break("md", "max") {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
   }
+
+  @include break("md", "max") {
+    width: 100%;
+    height: 100%;
+  }
+
+  // @include break("sm", "max") {
+  //   width: 200%;
+  //   height: 100%;
+  //   right: -20%;
+  // }
 }
 
 .navbar {
@@ -59,4 +99,8 @@
   flex-direction: column;
   gap: $gutter--sm;
   align-items: flex-end;
+
+  @include break("sm") {
+    order: -1;
+  }
 }
