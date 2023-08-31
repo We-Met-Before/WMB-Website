@@ -1,5 +1,5 @@
 import Script from "next/script";
-import HeroProject from "../src/components/HeroProject/HeroProject";
+import HeroProject from "../components/HeroProject/HeroProject";
 // import "src/styles/style.scss";
 
 export const metadata = {

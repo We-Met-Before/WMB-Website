@@ -10,30 +10,24 @@ html {
   --font-size--h4: #{$font-size--h4};
   --font-size--h3: #{$font-size--h3};
   --font-size--h2: #{$font-size--h2};
-  --font-size--h1: 5rem;
+  --font-size--h1: #{$font-size--h1};
+
   --font-size--md: #{$font-size--md};
   --font-size--base: #{$font-size--base};
 
   @include break("md", "max") {
-    --font-size--h4: 18px;
-    --font-size--h3: #{$font-size--h3};
+    --font-size--h4: #{$font-size--md};
     --font-size--h2: #{$font-size--h2 * 0.7};
-    --font-size--h1: 5rem;
-    --font-size--md: #{$font-size--md};
     --font-size--base: 1rem;
   }
 
   @include break("sm", "max") {
-    --font-size--h4: 18px;
-    --font-size--h3: #{$font-size--h3};
     --font-size--h2: #{$font-size--h2 * 0.6};
-    --font-size--h1: 2.5rem;
-    --font-size--md: #{$font-size--md};
-    --font-size--base: #{$font-size--base};
+    --font-size--h1: #{$font-size--h2 / 2 };
   }
 
   @include break("lg", "min") {
-    --font-size--h1: #{$font-size--h1};
+    --font-size--h1: #{$font-size--h1*2};
   }
 }
 
@@ -93,6 +87,7 @@ h4,
 .h4,
 %h4 {
   font-size: var(--font-size--h4);
+  line-height: $line-height--heading;
 }
 
 h5,
@@ -175,6 +170,7 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
 address {
   font-style: normal;
 }
@@ -225,16 +221,74 @@ figure figcaption {
   -webkit-box-orient: vertical;  
   overflow: hidden;
   }
+  
+  &--uppercase {
+    text-transform: uppercase;
+  }
 
   &--line {
     display: block;
   }
 }
 
+.article {
+  color: rgba(color(white, base), .65);
+  font-size: 1rem;
+  line-height: 1.5;
 
-// .char, .word {
-//   display: inline-block;
-// }
-// .line {
-//   display: block;
-// }
+  #{$headings} {
+    color: color(white, base);
+  }
+  h1, h2, h3 {
+    font-size: $font-size--h3;
+  }
+  & > *:first-child {
+    @extend .h4;
+  }
+
+  & > * {
+    max-width: 600px;
+  }
+
+  p {
+		margin: $gutter--md 0;
+	}
+
+  h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		margin-top: $gutter--lg;
+		margin-bottom: $gutter--md;
+	}
+
+
+	ul,
+	ol {
+		padding-left: $gutter--md;
+
+		li {
+			margin-bottom: $gutter--sm;
+		}
+	}
+
+	ul {
+		list-style: disc;
+	}
+
+	a {
+		text-decoration: underline;
+    transition: $transition--base;
+
+    &:hover {
+      color: color(white, base);
+    }
+	}
+
+
+  p:has(img) {
+    max-width: 100%;
+    margin: $gutter--lg 0;
+  }
+}

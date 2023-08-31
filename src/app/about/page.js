@@ -1,5 +1,5 @@
-import AboutContent from "../../src/components/about/aboutContent";
-import "../../src/legacy/scss/main.scss";
+import AboutContent from "@/components/about/aboutContent";
+import "@/legacy/scss/main.scss";
 
 export const metadata = {
   title: "We Met Before - Digital Design & Development Studio",

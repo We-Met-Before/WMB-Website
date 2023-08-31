@@ -1,0 +1,12 @@
+@import "../../../styles/abstracts";
+
+.header {
+    padding: $gutter--lg*1.5 0;
+    border-bottom: 1px solid #FFFFFF33;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding: $gutter--md*3 0;
+}

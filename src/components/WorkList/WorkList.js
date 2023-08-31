@@ -49,7 +49,7 @@ export default function WorkList({ projects }) {
         },
       });
     }
-  }, [transitioning]);
+  }, [transitioning, projects, router]);
 
   const openPage = (index) => {
     console.log("open page");
@@ -136,7 +136,7 @@ export default function WorkList({ projects }) {
                         />
                       </div>
                       <section className={styles.body}>
-                        <h3 className={styles.body__title}>{project.title}</h3>
+                        <h4 className={styles.body__title}>{project.title}</h4>
 
                         <p className="text--light text--clamp">
                           {project.excerpt}

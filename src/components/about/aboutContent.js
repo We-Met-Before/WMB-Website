@@ -1037,7 +1037,7 @@ function AboutContent() {
                   <div className="mbPortfolioItem_imageWrapper">
                     <img
                       className="mbPortfolioItem_image"
-                      src="about/assets/images/02072023/plantible.jpg"
+                      src="images/projects/plantible.jpg"
                       alt="We Met Before x Plantible Foods"
                     />
                   </div>
@@ -1057,7 +1057,7 @@ function AboutContent() {
                   <div className="mbPortfolioItem_imageWrapper">
                     <img
                       className="mbPortfolioItem_image"
-                      src="about/assets/images/02072023/de-eeuwige-jeugd.jpg"
+                      src="images/projects/de-eeuwige-jeugd.jpg"
                       alt="We Met Before x De Eeuwige Jeugd"
                     />
                   </div>
@@ -1079,7 +1079,7 @@ function AboutContent() {
                   <div className="mbPortfolioItem_imageWrapper">
                     <img
                       className="mbPortfolioItem_image"
-                      src="about/assets/images/02072023/living-creations.jpg"
+                      src="images/projects/living-creations.jpg"
                       alt="We Met Before x Living Creations"
                     />
                   </div>
@@ -1101,7 +1101,7 @@ function AboutContent() {
                   <div className="mbPortfolioItem_imageWrapper">
                     <img
                       className="mbPortfolioItem_image"
-                      src="about/assets/images/02072023/on-chain-smokers-new.jpg"
+                      src="images/projects/on-chain-smokers-new.jpg"
                       alt="We Met Before x On Chain Smokers"
                     />
                   </div>
@@ -1123,7 +1123,7 @@ function AboutContent() {
                   <div className="mbPortfolioItem_imageWrapper">
                     <img
                       className="mbPortfolioItem_image"
-                      src="about/assets/images/02072023/sinkit.jpg"
+                      src="images/projects/sinkit.jpg"
                       alt="We Met Before x Sinkit"
                     />
                   </div>
@@ -1147,7 +1147,7 @@ function AboutContent() {
                   <div className="mbPortfolioItem_imageWrapper">
                     <img
                       className="mbPortfolioItem_image"
-                      src="about/assets/images/02072023/orderchamp.jpg"
+                      src="images/projects/orderchamp.jpg"
                       alt="We Met Before x Orderchamp"
                     />
                   </div>
@@ -1167,7 +1167,7 @@ function AboutContent() {
                   <div className="mbPortfolioItem_imageWrapper">
                     <img
                       className="mbPortfolioItem_image"
-                      src="about/assets/images/02072023/de-bestuurskamer-new.jpg"
+                      src="images/projects/de-bestuurskamer-new.jpg"
                       alt="We Met Before x De Bestuurskamer"
                     />
                   </div>
@@ -1190,7 +1190,7 @@ function AboutContent() {
                   <div className="mbPortfolioItem_imageWrapper">
                     <img
                       className="mbPortfolioItem_image"
-                      src="about/assets/images/02072023/heroes.jpg"
+                      src="images/projects/heroes.jpg"
                       alt="We Met Before x HEROES"
                     />
                   </div>
@@ -1212,7 +1212,7 @@ function AboutContent() {
                   <div className="mbPortfolioItem_imageWrapper">
                     <img
                       className="mbPortfolioItem_image"
-                      src="about/assets/images/02072023/i-cam.jpg"
+                      src="images/projects/i-cam.jpg"
                       alt="We Met Before x i-Cam"
                     />
                   </div>
@@ -1234,7 +1234,7 @@ function AboutContent() {
                   <div className="mbPortfolioItem_imageWrapper">
                     <img
                       className="mbPortfolioItem_image"
-                      src="about/assets/images/02072023/moni.jpg"
+                      src="images/projects/moni.jpg"
                       alt="We Met Before x Moni"
                     />
                   </div>
@@ -1256,7 +1256,7 @@ function AboutContent() {
                   <div className="mbPortfolioItem_imageWrapper">
                     <img
                       className="mbPortfolioItem_image"
-                      src="about/assets/images/02072023/huijskens-sassen.jpg"
+                      src="images/projects/huijskens-sassen.jpg"
                       alt="We Met Before x Huijskens Sassen Communications"
                     />
                   </div>

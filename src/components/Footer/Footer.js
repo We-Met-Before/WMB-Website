@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className={styles.footer}>
       <div className="container">
         <h2 className="text--center">(4) Ways to get in touch</h2>
 

@@ -31,7 +31,7 @@ export default function NavBar() {
           <Link className="nav__link" href="#services">
             Services
           </Link>
-          <Link className="nav__link" href="about/index.html">
+          <Link className="nav__link" href="/about">
             About
           </Link>
           <Link className="nav__link" href="#work">
@@ -48,7 +48,7 @@ export default function NavBar() {
                 <Link className={styles.menu__link} href="#services">
                   <h2>Services</h2>
                 </Link>
-                <Link className={styles.menu__link} href="about/index.html">
+                <Link className={styles.menu__link} href="/about">
                   <h2>About</h2>
                 </Link>
                 <Link className={styles.menu__link} href="#work">

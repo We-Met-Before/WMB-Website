@@ -4,8 +4,8 @@ import { join } from "path";
 import { remark } from "remark";
 import html from "remark-html";
 
-export const DIR_PROJECTS = "content/projects";
-export const DIR_PEOPLE = "content/people";
+export const DIR_PROJECTS = "_content/projects";
+export const DIR_PEOPLE = "_content/people";
 
 export async function getPostById(id, source) {
   if(!source) source = DIR_PROJECTS;
