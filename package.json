@@ -5,6 +5,8 @@
   "dependencies": {
     "@leafac/rehype-shiki": "^2.2.1",
     "@splidejs/splide": "^4.1.4",
+    "@splidejs/splide-extension-auto-scroll": "^0.5.3",
+    "@splidejs/splide-extension-intersection": "^0.2.0",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.19",
     "fs": "^0.0.1-security",

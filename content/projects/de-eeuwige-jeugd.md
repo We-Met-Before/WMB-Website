@@ -1,5 +1,5 @@
 ---
-image: images/projects/de-eeuwige-jeugd.jpg
+image: /images/projects/de-eeuwige-jeugd.jpg
 title: De Eeuwige Jeugd
 Type: Design & Development
 URL: https://www.deeeuwigejeugd.nl/

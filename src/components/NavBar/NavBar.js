@@ -1,12 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import styles from "./NavBar.module.scss";
-import React, { useEffect, useRef, useState } from "react";
-import Splitting from "splitting";
-import { gsap } from "gsap";
-import Rellax from "rellax";
 
 export default function NavBar() {
   const [isActive, setIsActive] = useState(false);

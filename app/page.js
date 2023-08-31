@@ -14,8 +14,8 @@ export default async function home() {
       <Hero />
       <AboutUsCompact people={await getAllPeople()} />
       <Services />
-      <WorkList projects={await getAllProjects()} />
       <IdeasCome />
+      <WorkList projects={await getAllProjects()} />
       <Footer />
     </>
   );

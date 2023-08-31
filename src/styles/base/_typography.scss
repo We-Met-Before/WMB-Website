@@ -15,7 +15,7 @@ html {
   --font-size--base: #{$font-size--base};
 
   @include break("md", "max") {
-    --font-size--h4: #{$font-size--h4};
+    --font-size--h4: 18px;
     --font-size--h3: #{$font-size--h3};
     --font-size--h2: #{$font-size--h2 * 0.7};
     --font-size--h1: 5rem;
@@ -24,7 +24,7 @@ html {
   }
 
   @include break("sm", "max") {
-    --font-size--h4: #{$font-size--h4};
+    --font-size--h4: 18px;
     --font-size--h3: #{$font-size--h3};
     --font-size--h2: #{$font-size--h2 * 0.6};
     --font-size--h1: 2.5rem;
@@ -207,6 +207,10 @@ figure figcaption {
     opacity: 0.5;
   }
 
+  &--max-width {
+    max-width: 400px;
+  }
+
   &--center {
     text-align: center;
   }
@@ -221,12 +225,16 @@ figure figcaption {
   -webkit-box-orient: vertical;  
   overflow: hidden;
   }
+
+  &--line {
+    display: block;
+  }
 }
 
 
-.char, .word {
-  display: inline-block;
-}
-.line {
-  display: block;
-}
+// .char, .word {
+//   display: inline-block;
+// }
+// .line {
+//   display: block;
+// }

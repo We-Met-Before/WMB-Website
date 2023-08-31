@@ -1,5 +1,5 @@
 ---
-image: images/projects/de-bestuurskamer-new.jpg
+image: /images/projects/de-bestuurskamer-new.jpg
 title: De Bestuurskamer
 Type: Branding, Design & Development
 URL: https://www.debestuurskamer.nl/

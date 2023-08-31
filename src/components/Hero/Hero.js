@@ -1,13 +1,12 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import styles from "./Hero.module.scss";
-import React, { useEffect, useRef } from "react";
-import Splitting from "splitting";
 import { gsap } from "gsap";
+import Link from "next/link";
+import Script from "next/script";
+import { useEffect, useRef, useState } from "react";
 import Rellax from "rellax";
 import NavBar from "../NavBar/NavBar";
+import styles from "./Hero.module.scss";
 
 export default function Hero() {
   const titleRef = useRef(null);
@@ -15,26 +14,27 @@ export default function Hero() {
   const CTARef = useRef(null);
   const bodyRef = useRef(null);
 
+  const [hasSplitText, setHasSplitText] = useState(false);
+
   useEffect(() => {
-    if (titleRef.current) {
-      let splitResult = Splitting({ target: titleRef.current, by: "chars" });
+    if (titleRef.current && hasSplitText) {
+      gsap.registerPlugin(SplitText);
 
       Rellax(imageRef.current);
 
       var tl = gsap.timeline();
 
-      tl.from(splitResult[0].chars, {
-        y: "100%",
-        opacity: 0,
-        duration: 1,
-        ease: "Power3.easeOut",
-        stagger: 0.018,
-      });
-
-      tl.from(imageRef.current, {
-        opacity: 0,
-        duration: 1,
-      });
+      tl.from(
+        new SplitText(`.${styles.title__line}`, { type: "words,chars" }).chars,
+        {
+          y: "100%",
+          opacity: 0,
+          duration: 1,
+          ease: "Power3.easeOut",
+          stagger: 0.018,
+          delay: 3,
+        }
+      );
 
       tl.from(
         bodyRef.current,
@@ -44,18 +44,21 @@ export default function Hero() {
           duration: 1,
           stagger: 1,
         },
-        "<-1"
+        "4"
       );
-
-      console.log("oi");
     }
-  });
+  }, [hasSplitText]);
 
   return (
     <header className={styles.hero}>
+      <Script
+        src="/about/packages/SplitText.min.js"
+        onLoad={() => setHasSplitText(true)}
+      />
+
       <div className={styles.bg}>
-        {/* <Image src={HeroBGImage} priority={true} alt="deco" ref={imageRef} data-rellax-speed="4" /> */}
-        <video autoPlay muted playsInline>
+        
+        <video autoPlay muted playsInline ref={imageRef}>
           <source
             src="https://rotato.netlify.app/alpha-demo/movie-hevc.mov"
             type='video/mp4; codecs="hvc1"'

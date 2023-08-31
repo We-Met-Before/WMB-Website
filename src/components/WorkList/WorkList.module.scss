@@ -1,24 +1,45 @@
 @import "../../styles/abstracts";
 
-.slide {
-
-
-  &[class~="is-active"] {
-    .body {
-        opacity: 1;
-    }
-
-  }
+.header {
+  margin-bottom: $gutter--xl;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
-.card {
-  //   border: 1px solid red;
+.slide {
+  cursor: pointer;
+  
+  img {
+    transition: transform 0.5s $transition--bezier-timing;
+    transform: scale(1);
+  }
+
+  &:hover img {
+    transform: scale(1.07);
+  }
+
+  &--active, &:hover {
+    img {
+      transform: scale(1.05);
+    }
+
+    .body {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+.title {
+  margin-bottom: 1rem;
 }
 
 .body {
   padding: $gutter--lg 0;
   opacity: 0;
-    transition: $transition--bezier;
+  transition: $transition--bezier;
+  transform: translate3d(0, $gutter--sm, 0);
+
   &__title {
     margin-bottom: $gutter--sm;
   }
@@ -35,4 +56,8 @@
     height: 100%;
     object-fit: cover;
   }
+}
+
+.slider {
+  margin: $gutter--xl * 2 0;
 }

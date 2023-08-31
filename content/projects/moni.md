@@ -1,5 +1,5 @@
 ---
-image: images/projects/moni.jpg
+image: /images/projects/moni.jpg
 title: Moni
 Type: Branding, Design & Development
 URL: https://moni.nl/

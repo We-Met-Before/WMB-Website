@@ -1,5 +1,5 @@
 ---
-image: images/projects/sinkit.jpg
+image: /images/projects/sinkit.jpg
 title: Sinkit
 URL: https://www.sinkit.org/
 excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing e

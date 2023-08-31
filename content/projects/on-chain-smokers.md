@@ -1,5 +1,5 @@
 ---
-image: images/projects/on-chain-smokers-new.jpg
+image: /images/projects/on-chain-smokers-new.jpg
 title: On Chain Smokers
 Type: Branding, Design & Development
 URL: https://www.onchainsmokers.com/

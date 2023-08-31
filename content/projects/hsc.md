@@ -1,5 +1,5 @@
 ---
-image: images/projects/huijskens-sassen.jpg
+image: /images/projects/huijskens-sassen.jpg
 title: HSC
 Type: Design & Development
 URL: https://www.huijskenssassen.nl/

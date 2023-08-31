@@ -27,6 +27,7 @@ export default function AboutUsCompact({people}) {
                     src={person.image}
                     width={60}
                     height={60}
+                    alt={`Portrait of ${person.name}`}
                   />
                   <p>{person.name}</p>
                 </li>

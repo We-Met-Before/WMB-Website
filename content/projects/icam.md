@@ -1,5 +1,5 @@
 ---
-image: images/projects/i-cam.jpg
+image: /images/projects/i-cam.jpg
 excerpt: Lorem ipsum dolor sit amet, consectetur adipiscing e
 title: i-Cam
 Type: Branding, Design & Development

@@ -1,5 +1,5 @@
 ---
-image: images/projects/heroes.jpg
+image: /images/projects/heroes.jpg
 title: HEROES
 Type: Design & Development
 URL: https://www.weareheroes.one/)

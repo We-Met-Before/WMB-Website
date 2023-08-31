@@ -76,69 +76,72 @@ export default function Services() {
   }, [astroidRef, astroidRefs]);
 
   return (
-    <section className="container">
+    <section className="section">
       <h1 className={styles.title}>Services</h1>
-      <div className="flex--container">
-        <div className="col">
-          <ul className={styles.list}>
-            {content.services.map((item, index) => (
-              <li
-                className={`${styles.collapsable} ${
-                  active == index ? styles["collapsable--active"] : ""
-                }`}
-                key={index}
-                onClick={() => setActive(index)}
-              >
-                <h4>{item.title}</h4>
-                <p className={styles.collapsable__content}>{item.body}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className={`${styles.visual} col d--none--sm`}>
-          <ul className={styles["list__visuals"]} ref={astroidRef}>
-            {content.services.map((item, index) => (
-              <li
-                key={index}
-                className={`${styles.listitem} ${
-                  active == index && styles["listitem--active"]
-                } ${active == index - 1 && styles["listitem--next"]}`}
-              >
-                <div
-                  className={styles.astroid}
-                  ref={(element) => {
-                    astroidRefs.current[index] = element;
-                  }}
+      <div className="container">
+        <div className="flex--container">
+          <div className="col">
+            <ul className={styles.list}>
+              {content.services.map((item, index) => (
+                <li
+                  className={`${styles.collapsable} ${
+                    active == index ? styles["collapsable--active"] : ""
+                  }`}
+                  key={index}
+                  onClick={() => setActive(index)}
                 >
-                  <Image src={item.visual} />
-                </div>
-              </li>
-            ))}
-            {content.services.map((item, i) => (
-              <span className={styles.tag__group} key={i}>
-                {item.tags.map((tag, j) => (
-                  <li
-                    className={`${styles.listitem} ${
-                      styles["listitem--tag"]
-                    }  ${active == i && styles["listitem--active-tag"]}`}
-                  >
-                    <div
-                      className={`${styles.tag}`}
-                      key={j}
-                      ref={(element) => {
-                        tagRefs.current[j] = element;
-                      }}
-                    >
-                      {tag}
-                    </div>
-                  </li>
-                ))}
-              </span>
-            ))}
-          </ul>
+                  <h4>{item.title}</h4>
+                  <p className={styles.collapsable__content}>{item.body}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          <ul className={styles["list__tags"]}></ul>
+          <div className={`${styles.visual} col d--none--sm`}>
+            <ul className={styles["list__visuals"]} ref={astroidRef}>
+              {content.services.map((item, i) => (
+                <li
+                  key={i}
+                  className={`${styles.listitem} ${
+                    active == i && styles["listitem--active"]
+                  } ${active == i - 1 && styles["listitem--next"]}`}
+                >
+                  <div
+                    className={styles.astroid}
+                    ref={(element) => {
+                      astroidRefs.current[i] = element;
+                    }}
+                  >
+                    <Image src={item.visual} alt=""/>
+                  </div>
+                </li>
+              ))}
+              {content.services.map((item, i) => (
+                <span className={styles.tag__group} key={i}>
+                  {item.tags.map((tag, j) => (
+                    <li
+                      className={`${styles.listitem} ${
+                        styles["listitem--tag"]
+                      }  ${active == i && styles["listitem--active-tag"]}`}
+                      key={j}
+                    >
+                      <div
+                        className={`${styles.tag}`}
+                        key={j}
+                        ref={(element) => {
+                          tagRefs.current[j] = element;
+                        }}
+                      >
+                        {tag}
+                      </div>
+                    </li>
+                  ))}
+                </span>
+              ))}
+            </ul>
+
+            <ul className={styles["list__tags"]}></ul>
+          </div>
         </div>
       </div>
     </section>

@@ -1,15 +1,30 @@
-import { getPostById, getAllPosts, getAllProjects, DIR_PROJECTS } from "@/lib/api";
+import {
+  getPostById,
+  getAllPosts,
+  getAllProjects,
+  DIR_PROJECTS,
+} from "@/lib/api";
+import Image from "next/image";
+import "src/styles/style.scss";
+import { Flip } from "gsap/Flip";
+import HeroProject from "../../../src/components/HeroProject/HeroProject";
+
 
 // Generate the post, note that this is a "react server component"! it is
 // allowed to be async
 export default async function Post({ params: { id } }) {
-  const { content, title, date } = await getPostById(id, DIR_PROJECTS);
+  const { content, title, date, image } = await getPostById(id, DIR_PROJECTS);
+  console.log(image);
+  
   return (
-    <article>
-      <h1>{title}</h1>
-      <h4>{date}</h4>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
-    </article>
+    <>
+      <HeroProject image={image} />
+      <article>
+        <h1>{title}</h1>
+        <h4>{date}</h4>
+        <div dangerouslySetInnerHTML={{ __html: content }} />
+      </article>
+    </>
   );
 }
 

@@ -1,5 +1,5 @@
 ---
-image: images/projects/living-creations.jpg
+image: /images/projects/living-creations.jpg
 title: Living Creations
 Type: Branding, Design & Development
 URL: https://www.livingcreations.com/
