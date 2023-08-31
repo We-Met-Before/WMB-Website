@@ -1,23 +1,29 @@
 @use "sass:math";
 
 .badge {
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	font-size: $font-size--xs;
-	font-weight: inherit;
-	padding: math.div($gutter--sm, 2) $gutter--sm;
-	background-color: $color--bg-badge;
-	color: $color--text-badge;
-	z-index: 2;
-	border-radius: 0;
-	border: none;
-	border-radius: 0;
-	text-transform: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: $font-size--xs;
+  font-weight: inherit;
+  padding: math.div($gutter--sm, 2) $gutter--sm;
+  background-color: rgba(color(white, base), 0.14);
+  color: currentColor;
+  z-index: 2;
+  border-radius: 6px;
+  border: none;
+  text-transform: none;
+  transition: background-color color 0.5s $transition--bezier-timing;
+  transition: background-color 0.5s $transition--bezier-timing;
+  white-space: nowrap;
 
-	&--position {
-		position: absolute;
-		top: math.div($gutter--sm, 2);
-		right: math.div($gutter--sm, 2);
-	}
+  &--position {
+    position: absolute;
+    top: math.div($gutter--sm, 2);
+    right: math.div($gutter--sm, 2);
+  }
+}
+
+a:has(.badge):hover .badge {
+//   background-color: rgba(color(black, base), 0.14);
 }

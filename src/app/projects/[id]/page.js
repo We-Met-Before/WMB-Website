@@ -1,8 +1,7 @@
 import { DIR_PROJECTS, getAllProjects, getPostById } from "@/lib/api";
 import "src/styles/style.scss";
-import HeroProject from "../../../components/HeroProject/HeroProject";
 import Footer from "../../../components/Footer/Footer";
-import Image from "next/image";
+import HeroProject from "../../../components/HeroProject/HeroProject";
 import styles from "./page.module.scss";
 
 // Generate the post, note that this is a "react server component"! it is

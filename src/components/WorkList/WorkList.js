@@ -11,6 +11,7 @@ import { Flip } from "gsap/Flip";
 import { gsap } from "gsap";
 import HeroProject from "../HeroProject/HeroProject";
 import { useRouter } from "next/navigation";
+import { useProjectContext } from "../../root/project";
 
 export default function WorkList({ projects }) {
   const [targetSlide, setTargetSlide] = React.useState(0);
@@ -20,6 +21,9 @@ export default function WorkList({ projects }) {
   const slideImagesRef = useRef([]);
   const [transitioning, setTransitioning] = React.useState(false);
   const transitionTargetRef = useRef(null);
+
+
+  const [project, setProject] = useProjectContext();
 
   useEffect(() => {
     gsap.registerPlugin(Flip);
@@ -32,6 +36,11 @@ export default function WorkList({ projects }) {
 
     if (transitioning !== false) {
       console.log("transition page");
+      setProject({
+        title: projects[transitioning].title,
+        id: projects[transitioning].id,
+        image: projects[transitioning].image
+      });
       gsap.set(transitionTargetRef.current, { yPercent: -80 });
 
       Flip.fit(

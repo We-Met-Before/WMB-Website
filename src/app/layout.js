@@ -1,5 +1,6 @@
 import Script from "next/script";
 import HeroProject from "../components/HeroProject/HeroProject";
+import { ProjectProvider } from "../root/project";
 // import "src/styles/style.scss";
 
 export const metadata = {
@@ -12,13 +13,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en">s
       <Script src="/about/packages/ScrollTrigger.min.js" />
       <Script src="/about/packages/SplitText.min.js" />
-      <body>
-        {/* <HeroProject /> */}
-        <main>{children}</main>
-      </body>
+      <ProjectProvider>
+        <body>
+          <HeroProject image={"/images/projects/de-bestuurskamer-new.jpg"} />
+          <main>{children}</main>
+        </body>
+      </ProjectProvider>
     </html>
   );
 }
