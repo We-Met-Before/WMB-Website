@@ -13,12 +13,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">s
+    <html lang="en">
       <Script src="/about/packages/ScrollTrigger.min.js" />
       <Script src="/about/packages/SplitText.min.js" />
       <ProjectProvider>
         <body>
-          <HeroProject image={"/images/projects/de-bestuurskamer-new.jpg"} />
+          <HeroProject id={"new"} />
           <main>{children}</main>
         </body>
       </ProjectProvider>

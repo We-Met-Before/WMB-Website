@@ -2,22 +2,21 @@
 
 import { Splide } from "@splidejs/splide";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
+import { Intersection } from "@splidejs/splide-extension-intersection";
+import { gsap } from "gsap";
+import { Flip } from "gsap/Flip";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef } from "react";
-import styles from "./WorkList.module.scss";
-import { Intersection } from "@splidejs/splide-extension-intersection";
-import { Flip } from "gsap/Flip";
-import { gsap } from "gsap";
-import HeroProject from "../HeroProject/HeroProject";
 import { useRouter } from "next/navigation";
+import React, { useEffect, useRef } from "react";
 import { useProjectContext } from "../../root/project";
+import styles from "./WorkList.module.scss";
 
 export default function WorkList({ projects }) {
   const [targetSlide, setTargetSlide] = React.useState(0);
   const router = useRouter();
 
-  const heroImage = useRef(null);
+  // const heroImage = useRef(null);
   const slideImagesRef = useRef([]);
   const [transitioning, setTransitioning] = React.useState(false);
   const transitionTargetRef = useRef(null);
@@ -28,36 +27,52 @@ export default function WorkList({ projects }) {
   useEffect(() => {
     gsap.registerPlugin(Flip);
     // set initial position
-    gsap.set(heroImage.current, { y: "-10%" });
+    // gsap.set(heroImage.current, { y: "-10%" });
   });
 
   useEffect(() => {
-    console.log("tralk about " + transitioning);
-
+    
     if (transitioning !== false) {
       console.log("transition page");
+
+      // animate all visible slides on the page
+      gsap.to('.splide', {
+        y: '32px',
+        opacity: 0,
+        duration: .5
+        
+        // ease: 'Power3.easeOut'
+      })
+      
+
+
+      // update project info to display in the hero
       setProject({
         title: projects[transitioning].title,
         id: projects[transitioning].id,
         image: projects[transitioning].image
       });
-      gsap.set(transitionTargetRef.current, { yPercent: -80 });
 
       Flip.fit(
-        transitionTargetRef.current,
+        "#top-header",
         slideImagesRef.current[transitioning]
       );
-      const state = Flip.getState(transitionTargetRef.current);
-      gsap.set(transitionTargetRef.current, { clearProps: true });
+
+      const state = Flip.getState("#top-header");
+      gsap.set("#top-header", { clearProps: true });
+      
       Flip.from(state, {
-        duration: .4,
-        ease: "cubic-bezier(0.2, 0, 0, 1)",
+        duration: 4,
+        // ease: "Power3.easeOut",
         scale: false,
         onComplete: () => {
           router.push("/projects/" + projects[transitioning].id);
+          // console.log("should navigate now");
+          setTransitioning(false);
         },
       });
     }
+    
   }, [transitioning, projects, router]);
 
   const openPage = (index) => {
@@ -159,12 +174,8 @@ export default function WorkList({ projects }) {
           </section>
         )}
         {!projects.length > 0 && <p>No projects found</p>}
-
-        <HeroProject
-          image={transitioning !== false ? projects[transitioning].image : ""}
-          transitioning={true}
-          innerRef={transitionTargetRef}
-        />
+                        <h2>{projects[transitioning]?.image}</h2>
+       
       </div>
     </section>
   );

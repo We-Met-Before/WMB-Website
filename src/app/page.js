@@ -7,8 +7,10 @@ import IdeasCome from "../components/IdeasCome/IdeasCome";
 import Services from "../components/Services/Services";
 import WorkList from "../components/WorkList/WorkList";
 import Link from "next/link";
+import { useProjectContext } from "../root/project";
 
 export default async function home() {
+
   return (
     <>
       <Hero />

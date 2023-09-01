@@ -1,31 +1,40 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useProjectContext } from "../../root/project";
 import styles from "./HeroProject.module.scss";
 
-export default function HeroProject({ image, alt, transitioning, innerRef }) {
+import { usePathname } from "next/navigation";
+
+export default function HeroProject({ image, alt, inline }) {
   const [project, setProject] = useProjectContext();
+  const [useImage, setUseImage] = useState(null);
+  const pathname = usePathname();
 
   useEffect(() => {
-    console.log("project is???");
-    console.log(project);
-  }, [project]);
+    if (!pathname.includes(project.id)) {
+      setProject(false);
+    }
+  }, [pathname]);
 
-  if (image) {
-    return (
-      <header ref={innerRef} className={styles.hero}>
-        <Image src={image} width={200} height={200} alt={alt} />
-      </header>
-    );
-  } else if (project?.image) {
-    <header ref={innerRef} className={`${styles.hero} ${styles.transitioning}`}>
-      <Image src={image} width={200} height={200} alt={alt} />
-    </header>;
-  } else {
-    <header ref={innerRef} className={`${styles.hero} ${styles.transitioning}`}>
-      <Image src={"/images/projects/de-bestuurskamer-new.jpg"} width={200} height={200} alt={alt} />
-    </header>;
-  }
+  useEffect(() => {
+    if (project) {
+      setUseImage(project.image);
+    } else if (image) {
+      setUseImage(image);
+    } else {
+      setUseImage(null);
+    }
+  }, [project, image]);
+  return (
+    <header
+      id="top-header"
+      className={`${styles.hero} ${useImage == null ? styles.inactive : ""} ${
+        inline ? styles.inline : ""
+      }`}
+    >
+      {useImage && <Image src={useImage} width={200} height={200} alt={"alt"} />}
+    </header>
+  );
 }

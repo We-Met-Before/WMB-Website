@@ -51,7 +51,6 @@ export default function Services() {
 
   useEffect(() => {
     const duration = 80;
-    console.log(content.scrollHeight);
 
     gsap.to(astroidRef.current, {
       rotation: -360,

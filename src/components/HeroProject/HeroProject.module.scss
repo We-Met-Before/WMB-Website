@@ -2,7 +2,7 @@
 
 .hero {
   width: 100%;
-  height: 600px;
+  height: 800px;
   overflow: hidden;
   border-radius: 0px;
   transition: border-radius 0px $transition--bezier-timing;
@@ -10,9 +10,12 @@
   position: fixed;
   top: 0;
   left: 0;
-
-  
-
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 8px;
+  opacity: 1;
   img {
     width: 100%;
     height: 100%;
@@ -21,9 +24,8 @@
   }
 }
 
-.transitioning {
-  position: fixed;
-  top: 0;
-  left: 0;
-  border-radius: 8px;
+.inactive {
+  border: 2px solid red;
+  opacity: 0;
+  pointer-events: none;
 }

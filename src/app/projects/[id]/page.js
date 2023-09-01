@@ -3,6 +3,7 @@ import "src/styles/style.scss";
 import Footer from "../../../components/Footer/Footer";
 import HeroProject from "../../../components/HeroProject/HeroProject";
 import styles from "./page.module.scss";
+import Image from "next/image";
 
 // Generate the post, note that this is a "react server component"! it is
 // allowed to be async
@@ -12,28 +13,31 @@ export default async function Post({ params: { id } }) {
 
   return (
     <>
-      <HeroProject image={image} alt={title} />
-
-      <header className={styles.header}>
+      <div className={styles.wrapper}>
+        <header className={styles.header}>
+          <div className="container">
+            <h1 className="h3 text--uppercase">
+              {title} - {new Date(date).getFullYear()}
+            </h1>
+          </div>
+        </header>
         <div className="container">
-          <h1 className="h3 text--uppercase">
-            {title} - {new Date(date).getFullYear()}
-          </h1>
-        </div>
-      </header>
-      <div className="container">
-        <div className={styles.container}>
-          <aside>
-            <h4>About the project</h4>
-          </aside>
+          <div className={styles.container}>
+            <aside>
+              <h4>About the project</h4>
+            </aside>
 
-          <article
-            className="article"
-            dangerouslySetInnerHTML={{ __html: content }}
-          ></article>
+            <article
+              className="article"
+              dangerouslySetInnerHTML={{ __html: content }}
+            ></article>
+          </div>
         </div>
       </div>
-      <HeroProject image={image} alt={title} />
+      <footer>
+        <Image src={image} alt="" width={200} height={200} />
+      </footer>
+
       <Footer />
     </>
   );
