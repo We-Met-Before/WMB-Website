@@ -854,7 +854,7 @@ function AboutContent() {
     return () => {
       console.log("cleanup now!");
     };
-  }, [hasScrollSmoother, hasScrollTrigger, hasSplitText, isMobile]);
+  }, [hasScrollSmoother, hasScrollTrigger, hasSplitText, isMobile, smoother]);
 
   const goTo = (index) => {
     switch (index) {

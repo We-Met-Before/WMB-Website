@@ -1,10 +1,10 @@
+import Image from "next/image";
 import { forwardRef, useRef } from "react";
 
 const Video = forwardRef(({src, width, height, poster, autoPlay = true, loop = false}, ref) => (
   <video
     width={width}
     height={height}
-    
     poster={poster}
     autoPlay={autoPlay}
     loop={loop}
@@ -16,9 +16,12 @@ const Video = forwardRef(({src, width, height, poster, autoPlay = true, loop = f
     <source src={`${src}.webm`} type="video/webm" />
     <source src={`${src}.ogv`} type="video/ogg" />
 
-    <img src={`${src}.jpg`} width={width} height={height} />
+    <Image src={`${src}.jpg`} width={width} height={height} alt={""} />
   </video>
 ));
+
+Video.displayName = 'Video';
+
 
 export default Video;
 

@@ -16,7 +16,7 @@ export default function HeroProject({ image, alt, inline }) {
     if (!pathname.includes(project.id)) {
       setProject(false);
     }
-  }, [pathname]);
+  }, [pathname, project]);
 
   useEffect(() => {
     if (project) {

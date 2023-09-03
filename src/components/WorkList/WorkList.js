@@ -73,7 +73,7 @@ export default function WorkList({ projects }) {
       });
     }
     
-  }, [transitioning, projects, router]);
+  }, [transitioning, projects, router, setProject]);
 
   const openPage = (index) => {
     console.log("open page");
