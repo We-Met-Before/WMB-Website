@@ -4,8 +4,8 @@ body {
 }
 
 .section {
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: hidden;
+  min-height: 100vh;
 }
 
 body {

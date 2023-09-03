@@ -58,6 +58,7 @@
   overflow: hidden;
   z-index: -1;
   pointer-events: none;
+  height: 110%;
   -webkit-mask-image: -webkit-gradient(
     linear,
     left 49%,
@@ -68,10 +69,12 @@
 
   img,
   video {
-    height: 120%;
+    height: 100%;
     width: 120%;
     object-fit: contain;
     object-position: right;
+    position: absolute;
+    top: 0;
 
     @include break("md", "max") {
       width: 100%;

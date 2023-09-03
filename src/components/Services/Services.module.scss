@@ -38,7 +38,6 @@
   justify-content: center;
 }
 
-
 .visual {
   display: flex;
   justify-content: center;
@@ -57,11 +56,11 @@
   transform: translate(10%, -50%);
 
   &:nth-child(2) {
-    transform: translate(-150%, -150%);
+    transform: translate(-150%, -100%);
   }
 
   &:nth-child(3) {
-    transform: translate(-90%, 50%);
+    transform: translate(-90%, 10%);
   }
 
   &:nth-child(4) {
@@ -83,7 +82,7 @@
   &--active {
     // z-index: 1;
     .astroid {
-      filter: blur(0px);
+      // filter: blur(0px);
     }
   }
 
@@ -94,14 +93,14 @@
 
   &--next {
     .astroid {
-      filter: blur(3px);
+      // filter: blur(3px);
     }
   }
 }
 
 .astroid {
   width: 180px;
-  filter: blur(10px);
+  // filter: blur(10px);
   transition: filter 0.5s $transition--bezier-timing;
 
   img {
@@ -110,7 +109,7 @@
   }
 
   &--next {
-    filter: blur(3px);
+    // filter: blur(3px);
 
     img {
       transform: scale(1.05);
@@ -118,7 +117,7 @@
   }
 
   &--active {
-    filter: blur(10px);
+    // filter: blur(10px);
 
     img {
       transform: scale(1);
@@ -131,7 +130,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   display: inline-block;
   border-radius: 10px;
-  backdrop-filter: blur(20px);
+  // backdrop-filter: blur(20px);
   background: linear-gradient(
       0deg,
       rgba(250, 248, 246, 0.1),

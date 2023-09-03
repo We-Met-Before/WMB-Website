@@ -16,6 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Script src="/about/packages/ScrollTrigger.min.js" />
       <Script src="/about/packages/SplitText.min.js" />
+      <Script src="/about/packages/ScrollSmoother.min.js" />
       <ProjectProvider>
         <body>
           <HeroProject id={"new"} />
