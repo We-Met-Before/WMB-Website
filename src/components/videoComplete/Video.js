@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { forwardRef, useRef } from "react";
 
-const Video = forwardRef(({src, width, height, poster, autoPlay = true, loop = false}, ref) => (
+const Video = forwardRef(({src, width = 300, height = 300, poster, autoPlay = true, loop = false}, ref) => (
   <video
     width={width}
     height={height}

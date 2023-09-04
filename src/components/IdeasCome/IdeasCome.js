@@ -3,10 +3,10 @@
 import { gsap } from "gsap";
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import image_off from "public/images/WMB_MID_OFF.png";
 import image_on from "public/images/WMB_MID_ON.png";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { useExtLoaderContext } from "../../root/loader";
 import styles from "./IdeasCome.module.scss";
 
 export default function IdeasCome() {
@@ -14,27 +14,38 @@ export default function IdeasCome() {
   const bgRef = useRef(null);
   const imageOfRef = useRef(null);
   const wrapperRef = useRef(null);
-  const [hasScrollTrigger, setHasScrollTrigger] = useState(false);
+  const [hasScrollTrigger, setHasScrollTrigger] = useExtLoaderContext();
 
   useEffect(() => {
-    gsap.set(titleRef.current.children, {
+    const animation = {
+      duration: 0.5,
+      repeat: -1,
+      yoyo: true,
+      repeatDelay: 2,
+      ease: "Power2.easeInOut",
+    };
+
+    gsap.set(titleRef.current.children[0], {
+      y: "0%",
+      opacity: 1,
+    });
+
+    gsap.set(titleRef.current.children[1], {
+      y: "100%",
       opacity: 0,
     });
 
-    const animOptions = {
+    gsap.to(titleRef.current.children[1], {
+      ...animation,
+      y: "0%",
       opacity: 1,
-      duration: 1,
-      repeat: 1,
-      repeatDelay: 2,
-      yoyo: true,
-    };
+    });
 
-    gsap
-      .timeline({
-        repeat: -1,
-      })
-      .to(titleRef.current.children[0], animOptions)
-      .to(titleRef.current.children[1], animOptions);
+    gsap.to(titleRef.current.children[0], {
+      ...animation,
+      y: "-100%",
+      opacity: 0,
+    });
   }, [titleRef]);
 
   useEffect(() => {
@@ -60,35 +71,31 @@ export default function IdeasCome() {
           trigger: wrapperRef.current,
           ease: "none",
           start: "center center+=25%",
-          end: "bottom bottom"
+          toggleActions: "play complete reverse reverse",
         },
+        duration: 0.2,
         opacity: 0,
       });
     }
   }, [hasScrollTrigger]);
-  
+
   return (
     <section className={styles.wrapper} ref={wrapperRef}>
-      <Script
-        src="/about/packages/ScrollTrigger.min.js"
-        onLoad={() => setHasScrollTrigger(true)}
-      />
-
       <div className={styles.bg} ref={bgRef}>
         <Image src={image_on} alt="" />
-        <Image src={image_off} alt="" ref={imageOfRef} style={{opacity: 1}} />
+        <Image src={image_off} alt="" ref={imageOfRef} style={{ opacity: 1 }} />
       </div>
 
       <div className="container">
         <div className={styles.content}>
           <h1 className={styles.title}>
             <span className="text--line">Where</span>
-            <span className="text--line">
+            <span className="text--line flex">
               <span className={styles.alternating} ref={titleRef}>
                 <span className={styles.alternating__first}>ideas</span>
                 <span className={styles.alternating__second}>we</span>
               </span>
-              come
+              <span>come</span>
             </span>
             <span className="text--line">together.</span>
           </h1>

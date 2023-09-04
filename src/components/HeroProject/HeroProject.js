@@ -6,6 +6,7 @@ import { useProjectContext } from "../../root/project";
 import styles from "./HeroProject.module.scss";
 
 import { usePathname } from "next/navigation";
+import ExternalScripts from "../externalScripts/externalScripts";
 
 export default function HeroProject({ image, alt, inline }) {
   const [project, setProject] = useProjectContext();
@@ -14,11 +15,15 @@ export default function HeroProject({ image, alt, inline }) {
 
   useEffect(() => {
     if (!pathname.includes(project.id)) {
+      console.log("set project to false");
+      console.log(project.id);
+      console.log(pathname);
       setProject(false);
     }
-  }, [pathname, project]);
+  }, [pathname]);
 
   useEffect(() => {
+    console.log({project})
     if (project) {
       setUseImage(project.image);
     } else if (image) {
@@ -35,6 +40,8 @@ export default function HeroProject({ image, alt, inline }) {
       }`}
     >
       {useImage && <Image src={useImage} width={200} height={200} alt={"alt"} />}
+      <ExternalScripts />
+      
     </header>
   );
 }

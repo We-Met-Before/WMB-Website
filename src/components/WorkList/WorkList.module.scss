@@ -1,4 +1,5 @@
 @import "../../styles/abstracts";
+@import "../../styles/elements/cursor";
 
 .header {
   margin-bottom: $gutter--xl;
@@ -7,9 +8,23 @@
   align-items: flex-end;
 }
 
+
+
+.slider {
+  &:has(.card:hover) .cursor {
+    @extend .cursor--active;
+    
+    transform: scale(4) translate3d($gutter--sm, $gutter--sm, 0);
+
+    .cursor__icon {
+      transform:  scale(1);
+    }
+  }
+}
+
 .slide {
   cursor: pointer;
-  
+
   img {
     transition: transform 0.5s $transition--bezier-timing;
     transform: scale(1);
@@ -19,7 +34,8 @@
     transform: scale(1.07);
   }
 
-  &--active, &:hover {
+  &--active,
+  &:hover {
     img {
       transform: scale(1.05);
     }
@@ -29,6 +45,17 @@
       transform: translate3d(0, 0, 0);
     }
   }
+}
+
+.boxes {
+  display: flex;
+}
+
+.box {
+  min-width: 200px;
+  min-height: 200px;
+  margin: 2rem;
+  background: blue;
 }
 .title {
   margin-bottom: 1rem;

@@ -1,0 +1,55 @@
+.cursor {
+  width: $gutter--md;
+  height: $gutter--md;
+  background: white;
+  pointer-events: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 9;
+  border-radius: 100%;
+  transition: 0.3s transform $transition--bezier-timing;
+  transform: scale(1) translate3d($gutter--sm, $gutter--sm, 0);
+  transform-origin: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  &--active {
+    box-shadow: none;
+    transform: scale(5);
+  }
+
+  &__icon {
+    width: $gutter--sm;
+    height: $gutter--md;
+    transition: $transition--bezier;
+    transform: scale(0);
+
+    &--full,
+    &--external {
+      @extend .cursor__icon;
+    }
+
+    &--active {
+      transform: scale(1);
+    }
+  }
+}
+body:has(.cursor-trigger:hover) .cursor {
+  @extend .cursor--active;
+
+  .cursor__icon--full {
+    @extend .cursor__icon--active;
+  }
+}
+
+body:has(.cursor-trigger--external:hover) .cursor {
+  @extend .cursor--active;
+  display: none;
+
+  .cursor__icon--external {
+    @extend .cursor__icon--active;
+  }
+}

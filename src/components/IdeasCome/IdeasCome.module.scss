@@ -44,7 +44,9 @@
 .alternating {
   position: relative;
   margin-right: .5ch;
-
+  overflow: hidden;
+  display: inline-block;
+  
   &__first, &__second {
     display: inline-block;
   }

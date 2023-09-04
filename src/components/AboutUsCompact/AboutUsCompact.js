@@ -5,15 +5,17 @@ import Link from "next/link";
 import styles from "./AboutUsCompact.module.scss";
 import { useEffect, useState } from "react";
 
-export default function AboutUsCompact({people}) {
+export default function AboutUsCompact({ people }) {
   const [list, setList] = useState([]);
+
   useEffect(() => {
     people.sort((a, b) => 0.5 - Math.random());
-    people.slice(0,2);
+    people.slice(0, 2);
     const shuffle = people.sort((a, b) => 0.5 - Math.random());
-    const slice = shuffle.slice(0,3);
+    const slice = shuffle.slice(0, 3);
     setList(slice);
   }, [people]);
+
   return (
     <section>
       <div className="container">
@@ -32,11 +34,9 @@ export default function AboutUsCompact({people}) {
                   <p>{person.name}</p>
                 </li>
               ))}
-
-            
           </ul>
           <p className="list--avatars__description text--light">
-            Read <br /> about us +8;
+            Read <br /> about us +{people.length};
           </p>
         </Link>
       </div>

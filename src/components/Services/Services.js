@@ -8,6 +8,7 @@ import astroid_2 from "/public/images/shape_0001_SHAPE-2.png";
 import astroid_3 from "/public/images/shape_0002_SHAPE-3.png";
 import Video from "../videoComplete/Video";
 import Script from "next/script";
+import { useExtLoaderContext } from "../../root/loader";
 
 const content = {
   services: [
@@ -32,14 +33,14 @@ const content = {
     {
       title: "Creative Sidekicks",
       body: `From crafting unique brand identities to sculpting immersive designs, building seamless digital experiences, and sparking collective creativity, we're your dedicated partner. Get in touch, and let's shape the exceptional together.`,
-      tags: ["Figma", "Workshops", "Team Creativity"]
+      tags: ["Figma", "Workshops", "Team Creativity"],
     },
   ],
 };
 
 export default function Services() {
   const [active, setActive] = React.useState(0);
-  const [hasScrollTrigger, setHasScrollTrigger] = React.useState(false);
+  const [hasScrollTrigger, setHasScrollTrigger] = useExtLoaderContext();
   const astroidRef = useRef();
   const astroidRefs = useRef([]);
   const tagRefs = useRef([]);
@@ -52,17 +53,14 @@ export default function Services() {
   ];
 
   // useEffect(() => {
-  //   if(hasScrollTrigger) {
-  //     gsap.registerPlugin(ScrollTrigger);
-
+  //   if (hasScrollTrigger) {
   //     ScrollSmoother.create({
-  //       smooth: 1,               // how long (in seconds) it takes to "catch up" to the native scroll position
-  //       effects: true,           // looks for data-speed and data-lag attributes on elements
-  //       smoothTouch: 0.1,        // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
+  //       smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
+  //       effects: true, // looks for data-speed and data-lag attributes on elements
+  //       smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
   //     });
-
   //   }
-  // }, [hasScrollTrigger])
+  // }, [hasScrollTrigger]);
 
   useEffect(() => {
     const duration = 8;
@@ -72,7 +70,7 @@ export default function Services() {
       ease: "linear",
       repeat: -1,
       duration: duration,
-      yoyo: true
+      yoyo: true,
     });
     gsap.from(astroidRefs.current, {
       rotation: -15,
@@ -80,25 +78,20 @@ export default function Services() {
       repeat: -1,
       duration: duration,
       stagger: false,
-      yoyo: true
+      yoyo: true,
     });
-    gsap.from(tagRefs.current, {
-      rotation: -15,
-      ease: "linear",
-      repeat: -1,
-      duration: duration,
-      stagger: false,
-      yoyo: true
-    });
+    // gsap.from(tagRefs.current, {
+    //   rotation: -15,
+    //   ease: "linear",
+    //   repeat: -1,
+    //   duration: duration,
+    //   stagger: false,
+    //   yoyo: true,
+    // });
   }, [astroidRef, astroidRefs]);
 
   return (
     <section className="section">
-      <Script
-        src="/about/packages/ScrollTrigger.min.js"
-        onLoad={() => setHasScrollTrigger(true)}
-      />
-      
       <div className="container--offset">
         <h1 className={styles.title}>Services</h1>
       </div>
@@ -135,11 +128,9 @@ export default function Services() {
                     ref={(element) => {
                       astroidRefs.current[i] = element;
                     }}
-                    
                   >
                     {/* <Image src={item.visual} alt=""/> */}
-                    <Video src={item.visual} loop={false}/>
-                    
+                    <Video src={item.visual} loop={false} />
                   </div>
                 </li>
               ))}

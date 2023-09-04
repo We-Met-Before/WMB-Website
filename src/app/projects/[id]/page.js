@@ -9,10 +9,10 @@ import Image from "next/image";
 // allowed to be async
 export default async function Post({ params: { id } }) {
   const { content, title, date, image } = await getPostById(id, DIR_PROJECTS);
-  console.log(image);
 
   return (
     <>
+      <HeroProject image={image} />
       <div className={styles.wrapper}>
         <header className={styles.header}>
           <div className="container">

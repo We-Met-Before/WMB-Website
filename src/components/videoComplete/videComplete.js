@@ -9,18 +9,16 @@ export default function VideoComplete({ width, height, src, loop }) {
   let timer;
 
   const onLoopEnd = () => {
+    setPlayLoop(false);
+    clearTimeout(timer);
     timer = setTimeout(() => {
-      loopRef.current.play();
-    }, Math.floor(Math.random() * 1000 + 1000));
-  };
-
-  const onSrcEnd = () => {
-    setPlayLoop(true);
+      setPlayLoop(true);
+    }, Math.random() * 1000 + 1000);
   };
 
   useEffect(() => {
     if (srcRef.current && loopRef.current) {
-      srcRef.current.addEventListener("ended", onSrcEnd);
+      srcRef.current.addEventListener("ended", onLoopEnd);
       loopRef.current.addEventListener("ended", onLoopEnd);
 
       if (playLoop) {
@@ -30,9 +28,8 @@ export default function VideoComplete({ width, height, src, loop }) {
       }
 
       return () => {
-        clearTimeout(timer);
-        // loopRef.current.removeEventListener("ended", onLoopEnd);
-        // srcRef.current.removeEventListener("ended", onSrcEnd);
+        loopRef.current?.removeEventListener("ended", onLoopEnd);
+        srcRef.current?.removeEventListener("ended", onLoopEnd);
       };
     }
   }, [srcRef, loopRef, playLoop]);
