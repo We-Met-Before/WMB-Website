@@ -31,9 +31,9 @@ export default function NavBar() {
           <Link className="nav__link" href="#services">
             Services
           </Link>
-          <Link className="nav__link" href="/about">
+          <a className="nav__link" href="/about">
             About
-          </Link>
+          </a>
           <Link className="nav__link" href="#work">
             Work
           </Link>

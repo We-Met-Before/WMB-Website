@@ -16,7 +16,9 @@ function AboutContent({portfolioItems}) {
   const [showSplash, setShowSplash] = useState(true);
 
   let smoother;
+  
   useEffect(() => {
+    
     setIsMobile(window.matchMedia("(max-width: 768px)").matches);
     setIsSafari(
       navigator.vendor.match(/apple/i) &&
@@ -27,6 +29,7 @@ function AboutContent({portfolioItems}) {
   }, []);
 
   useEffect(() => {
+    let serviceTl, storyAniMobile, storyAniDesktop, workTl;
     if (!hasScrollSmoother || !hasScrollTrigger || !hasSplitText) return;
     console.log("trigger all timeline functiones");
 
@@ -222,7 +225,7 @@ function AboutContent({portfolioItems}) {
         transformOrigin: "center",
         filter: "blur(50px)",
       });
-      let serviceTl = gsap.timeline({
+      serviceTl = gsap.timeline({
         defaults: {
           duration: 2,
           ease: "Power1.easeOut",
@@ -592,7 +595,8 @@ function AboutContent({portfolioItems}) {
         opacity: 0,
         yPercent: 25,
       });
-      var storyAniMobile = gsap.timeline({
+      
+      storyAniMobile = gsap.timeline({
         defaults: {
           ease: "Power2.ease",
           duration: 1,
@@ -694,7 +698,7 @@ function AboutContent({portfolioItems}) {
       gsap.set(".mbStoryCirBor2", {
         marginRight: "40%",
       });
-      var storyAniDesktop = gsap.timeline({
+      storyAniDesktop = gsap.timeline({
         defaults: {
           ease: "Power2.ease",
           duration: 1,
@@ -828,7 +832,7 @@ function AboutContent({portfolioItems}) {
       trigger: document.querySelector(".mbPortfolioList"),
     };
 
-    let workTl = gsap.timeline({
+    workTl = gsap.timeline({
       scrollTrigger: {
         start: "25% 50%",
         end: "170% 50%",
@@ -854,6 +858,24 @@ function AboutContent({portfolioItems}) {
 
     return () => {
       console.log("cleanup now!");
+      gsap.killTweensOf(".splash-screen");
+      welcomeAnim.kill();
+      mbHeroSt.kill();
+      serviceTl.kill();
+      thumbnails.destroy();
+      main.destroy();
+      serviceTitle.kill();
+      gsap.killTweensOf(".mbServiceContent");
+      gsap.killTweensOf(".mbServiceIcon");
+      gsap.killTweensOf(".mbServiceClick");
+      if(storyAniMobile) {
+        storyAniMobile.kill();
+      }
+      if(storyAniDesktop) {
+        storyAniDesktop.kill();
+      }
+      workTl.kill();
+
     };
   }, [hasScrollSmoother, hasScrollTrigger, hasSplitText, isMobile, smoother]);
 
@@ -882,14 +904,17 @@ function AboutContent({portfolioItems}) {
       <Script
         src="/about/packages/ScrollSmoother.min.js"
         onLoad={() => setHasScrollSmoother(true)}
+        onReady={() => setHasScrollSmoother(true)}
       />
       <Script
         src="/about/packages/SplitText.min.js"
         onLoad={() => setHasSplitText(true)}
+        onReady={() => setHasSplitText(true)}
       />
       <Script
         src="/about/packages/ScrollTrigger.min.js"
         onLoad={() => setHasScrollTrigger(true)}
+        onReady={() => setHasScrollTrigger(true)}
       />
       <div
         className="splash-screen"
