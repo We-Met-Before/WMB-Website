@@ -1,14 +1,13 @@
 "use client";
 
 import { gsap } from "gsap";
-import Image from "next/image";
-import React, { useEffect, useRef } from "react";
-import styles from "./Services.module.scss";
-import astroid_2 from "/public/images/shape_0001_SHAPE-2.png";
-import astroid_3 from "/public/images/shape_0002_SHAPE-3.png";
-import Video from "../videoComplete/Video";
-import Script from "next/script";
+import { useEffect, useRef, useState } from "react";
 import { useExtLoaderContext } from "../../root/loader";
+import Video from "../videoComplete/Video";
+import styles from "./Services.module.scss";
+import classNames from "classnames";
+
+const cn = classNames.bind(styles);
 
 const content = {
   services: [
@@ -39,74 +38,85 @@ const content = {
 };
 
 export default function Services() {
-  const [active, setActive] = React.useState(0);
-  const [hasScrollTrigger, setHasScrollTrigger] = useExtLoaderContext();
+  const [active, setActive] = useState(0);
+  const [hasScrollTrigger] = useExtLoaderContext();
   const astroidRef = useRef();
   const astroidRefs = useRef([]);
+  const videoRefs = useRef([]);
   const tagRefs = useRef([]);
-
-  const astroids = [astroid_2, astroid_3, astroid_2];
-  const tags = [
-    ["HTML", "CSS", "JS"],
-    ["Design Thinking", "Sprints", "Figma"],
-    ["Brand Guide", "Interviews", "Discovery"],
-  ];
-
-  // useEffect(() => {
-  //   if (hasScrollTrigger) {
-  //     ScrollSmoother.create({
-  //       smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
-  //       effects: true, // looks for data-speed and data-lag attributes on elements
-  //       smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
-  //     });
-  //   }
-  // }, [hasScrollTrigger]);
+  const wrapperRef = useRef();
+  const testRef = useRef();
 
   useEffect(() => {
-    const duration = 8;
+    if (hasScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      videoRefs.current.forEach((video) => {
+        gsap.to(video, {
+          scrollTrigger: {
+            trigger: video,
+            start: "top center+=25%",
+            onEnter: () => video.play(),
+          },
+        });
+      });
+    }
+
+    return () => {
+      videoRefs.current.forEach((video) => {
+        gsap.killTweensOf(video);
+      });
+    };
+  }, [hasScrollTrigger, videoRefs]);
+
+  useEffect(() => {
+    const duration = 80;
 
     gsap.to(astroidRef.current, {
-      rotation: -15,
+      rotation: -180,
       ease: "linear",
       repeat: -1,
       duration: duration,
       yoyo: true,
     });
     gsap.from(astroidRefs.current, {
-      rotation: -15,
+      rotation: -180,
       ease: "linear",
       repeat: -1,
       duration: duration,
       stagger: false,
       yoyo: true,
     });
-    // gsap.from(tagRefs.current, {
-    //   rotation: -15,
-    //   ease: "linear",
-    //   repeat: -1,
-    //   duration: duration,
-    //   stagger: false,
-    //   yoyo: true,
-    // });
+    gsap.from(tagRefs.current, {
+      rotation: -180,
+      ease: "linear",
+      repeat: -1,
+      duration: duration,
+      stagger: false,
+      yoyo: true,
+    });
+
+    return () => {
+      gsap.killTweensOf(astroidRef.current);
+      gsap.killTweensOf(astroidRefs.current);
+      gsap.killTweensOf(tagRefs.current);
+    };
   }, [astroidRef, astroidRefs]);
 
   return (
-    <section className="section">
+    <section className="section" ref={wrapperRef} id="services">
       <div className="container--offset">
-        <h1 className={styles.title}>Services</h1>
+        <h1 className={styles.title} ref={testRef}>
+          Services
+        </h1>
       </div>
+
       <div className="container">
         <div className="flex--container">
           <div className="col">
             <ul className={styles.list}>
               {content.services.map((item, index) => (
-                <li
-                  className={`${styles.collapsable} ${
-                    active == index ? styles["collapsable--active"] : ""
-                  }`}
-                  key={index}
-                  onClick={() => setActive(index)}
-                >
+                <li className={`${styles.collapsable} ${active == index && styles["collapsable--active"]}`} key={index} onClick={() => setActive(index)}>
                   <h4>{item.title}</h4>
                   <p className={styles.collapsable__content}>{item.body}</p>
                 </li>
@@ -117,34 +127,33 @@ export default function Services() {
           <div className={`${styles.visual} col d--none--sm`}>
             <ul className={styles["list__visuals"]} ref={astroidRef}>
               {content.services.map((item, i) => (
-                <li
-                  key={i}
-                  className={`${styles.listitem} ${
-                    active == i && styles["listitem--active"]
-                  } ${active == i - 1 && styles["listitem--next"]}`}
-                >
-                  <div
-                    className={styles.astroid}
-                    ref={(element) => {
-                      astroidRefs.current[i] = element;
-                    }}
-                  >
-                    {/* <Image src={item.visual} alt=""/> */}
-                    <Video src={item.visual} loop={false} />
-                  </div>
+                <li key={i} className={styles.listitem}>
+                  {item.visual && (
+                    <div
+                      className={styles.astroid}
+                      ref={(element) => {
+                        astroidRefs.current[i] = element;
+                      }}
+                    >
+                      <Video
+                        src={item.visual}
+                        loop={false}
+                        autoPlay={false}
+                        ref={(element) => {
+                          videoRefs.current[i] = element;
+                        }}
+                      />
+                    </div>
+                  )}
                 </li>
               ))}
-              {/* {content.services.map((item, i) => (
+
+              {content.services.map((item, i) => (
                 <span className={styles.tag__group} key={i}>
                   {item.tags.map((tag, j) => (
-                    <li
-                      className={`${styles.listitem} ${
-                        styles["listitem--tag"]
-                      }  ${active == i && styles["listitem--active-tag"]}`}
-                      key={j}
-                    >
+                    <li className={`${styles.listitem} ${styles["listitem--tag"]}  ${active == i && styles["listitem--active-tag"]}`} key={j}>
                       <div
-                        className={`${styles.tag}`}
+                        className="badge"
                         key={j}
                         ref={(element) => {
                           tagRefs.current[j] = element;
@@ -155,7 +164,7 @@ export default function Services() {
                     </li>
                   ))}
                 </span>
-              ))} */}
+              ))}
             </ul>
           </div>
         </div>

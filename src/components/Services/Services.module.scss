@@ -29,6 +29,9 @@
   }
 }
 
+.collapsable--active {
+}
+
 .list {
   margin-top: $gutter--lg;
   margin-bottom: $gutter--lg;
@@ -125,16 +128,11 @@
   }
 }
 
-.tag {
-  padding: $gutter--md $gutter--md * 1.5;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  display: inline-block;
-  border-radius: 10px;
-  // backdrop-filter: blur(20px);
-  background: linear-gradient(
-      0deg,
-      rgba(250, 248, 246, 0.1),
-      rgba(250, 248, 246, 0.1)
-    ),
-    linear-gradient(0deg, rgba(250, 248, 246, 0.05), rgba(250, 248, 246, 0.05));
-}
+// .tag {
+//   padding: $gutter--md $gutter--md * 1.5;
+//   border: 1px solid rgba(255, 255, 255, 0.1);
+//   display: inline-block;
+//   border-radius: 10px;
+//   // backdrop-filter: blur(20px);
+//   background: linear-gradient(0deg, rgba(250, 248, 246, 0.1), rgba(250, 248, 246, 0.1)), linear-gradient(0deg, rgba(250, 248, 246, 0.05), rgba(250, 248, 246, 0.05));
+// }

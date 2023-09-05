@@ -1,24 +1,30 @@
 .flex {
-	display: flex;
+  display: flex;
 
-	&--start {
-		@extend .flex;
-		align-items: center;
-		justify-content: flex-start;
-	}
+  &--start {
+    @extend .flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
 
-	&--container {
-		@extend .flex;
-		gap: $grid--gutter;
-	}
+  &--container {
+    @extend .flex;
+    gap: $grid--gutter;
+  }
 
-	&--between {
-		@extend .flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-	
-	.col {
-		flex-basis: 100%;
-	}
+  &--center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--between {
+    @extend .flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .col {
+    flex-basis: 100%;
+  }
 }

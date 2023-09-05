@@ -1,5 +1,6 @@
 import AboutContent from "@/components/about/aboutContent";
 import "@/legacy/scss/main.scss";
+import { getAllPeople } from "../../lib/api";
 
 export const metadata = {
   title: "We Met Before - Digital Design & Development Studio",
@@ -13,10 +14,10 @@ export const metadata = {
   },
 };
 
-export default function about() {
+export default async function about() {
   return (
     <>
-      <AboutContent />
+      <AboutContent portfolioItems={await getAllPeople()} />
     </>
   );
 }

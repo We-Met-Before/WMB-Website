@@ -1,12 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useProjectContext } from "../../root/project";
-import styles from "./HeroProject.module.scss";
-
 import { usePathname } from "next/navigation";
-import ExternalScripts from "../externalScripts/externalScripts";
+import Image from "next/image";
+import styles from "./HeroProject.module.scss";
+import classNames from "classnames";
+
+const cn = classNames.bind(styles);
 
 export default function HeroProject({ image, alt, inline }) {
   const [project, setProject] = useProjectContext();
@@ -14,34 +15,27 @@ export default function HeroProject({ image, alt, inline }) {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (!pathname.includes(project.id)) {
-      console.log("set project to false");
-      console.log(project.id);
-      console.log(pathname);
+    if (!pathname.includes(project?.id)) {
       setProject(false);
     }
   }, [pathname]);
 
   useEffect(() => {
-    console.log({project})
     if (project) {
       setUseImage(project.image);
-    } else if (image) {
-      setUseImage(image);
     } else {
-      setUseImage(null);
+      setUseImage(image || null);
     }
   }, [project, image]);
   return (
     <header
       id="top-header"
-      className={`${styles.hero} ${useImage == null ? styles.inactive : ""} ${
-        inline ? styles.inline : ""
-      }`}
+      className={cn(styles.hero, {
+        inactive: useImage === null,
+        inline: inline,
+      })}
     >
       {useImage && <Image src={useImage} width={200} height={200} alt={"alt"} />}
-      <ExternalScripts />
-      
     </header>
   );
 }

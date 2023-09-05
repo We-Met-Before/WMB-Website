@@ -6,6 +6,11 @@ import styles from "./NavBar.module.scss";
 
 export default function NavBar() {
   const [isActive, setIsActive] = useState(false);
+
+  const toggleMenu = () => {
+    setIsActive(!isActive);
+  };
+
   return (
     <>
       <nav className={styles.navbar}>
@@ -14,12 +19,7 @@ export default function NavBar() {
           <span>Creative Studio</span>
         </div>
 
-        <button
-          className={`${styles.button} ${
-            isActive ? styles["button--active"] : ""
-          }`}
-          onClick={() => setIsActive(!isActive)}
-        >
+        <button className={`${styles.button} ${isActive ? styles["button--active"] : ""}`} onClick={toggleMenu}>
           <div className={styles.icon}>
             <span className={styles.icon__bar}></span>
             <span className={styles.icon__bar}></span>

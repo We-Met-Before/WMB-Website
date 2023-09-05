@@ -5,7 +5,7 @@ import Script from "next/script";
 import { useEffect } from "react";
 import { useExtLoaderContext } from "../../root/loader";
 
-export default function ExternalScripts({ image, alt, inline }) {
+export default function ExternalScripts() {
   const [hasScrollTrigger, setHasScrollTrigger] = useExtLoaderContext();
   const [hasSplitText, setHasSplitText] = useExtLoaderContext();
   const [hasScrollSmooth, setHasScrollSmooth] = useExtLoaderContext();

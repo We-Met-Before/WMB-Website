@@ -6,31 +6,11 @@ body {
 .section {
   overflow: hidden;
   min-height: 100vh;
+  position: relative;
 }
 
 
 body {
   position: relative;
   background-color: color(black, base);
-
-  // &:before {
-  //   content: "";
-  //   position: absolute;
-  //   width: 60vw;
-  //   height: 60vw;
-  //   background: linear-gradient(120deg, #6b6762cc 5%, rgba(7, 9, 10, 0) 70%);
-  //   top: 0;
-  //   left: 0;
-  //   min-height: 400px;
-  //   min-width: 400px;
-  //   z-index: 1;
-  //   pointer-events: none;
-  //   -webkit-mask-image: -webkit-gradient(
-  //     linear,
-  //     left 29%,
-  //     left 100%,
-  //     from(rgba(0, 0, 0, 1)),
-  //     to(rgba(0, 0, 0, 0))
-  //   );
-  // }
 }

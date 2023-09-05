@@ -4,6 +4,7 @@ import Footer from "../../../components/Footer/Footer";
 import HeroProject from "../../../components/HeroProject/HeroProject";
 import styles from "./page.module.scss";
 import Image from "next/image";
+import Cursor from "../../../components/Cursor/Cursor";
 
 // Generate the post, note that this is a "react server component"! it is
 // allowed to be async
@@ -13,6 +14,7 @@ export default async function Post({ params: { id } }) {
   return (
     <>
       <HeroProject image={image} />
+      <Cursor />
       <div className={styles.wrapper}>
         <header className={styles.header}>
           <div className="container">

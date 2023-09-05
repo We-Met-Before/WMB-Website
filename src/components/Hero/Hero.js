@@ -6,27 +6,35 @@ import { useEffect, useRef, useState } from "react";
 import Rellax from "rellax";
 import { useExtLoaderContext } from "../../root/loader";
 import NavBar from "../NavBar/NavBar";
-import VideoComplete from "../videoComplete/videComplete";
+import VideoComplete from "../videoComplete/videoComplete";
 import styles from "./Hero.module.scss";
+import classNames from "classnames";
+
+const cn = classNames.bind(styles);
 
 export default function Hero() {
-  const titleRef = useRef(null);
+  const titleRef = useRef([]);
   const bodyRef = useRef(null);
-  const [hasSplitText, setHasSplitText] = useExtLoaderContext(false);
+  
+  const [hasSplitText] = useExtLoaderContext(false);
   const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    Rellax(".rellax");
+  }, [Rellax]);
 
   useEffect(() => {
     if (titleRef.current && hasSplitText) {
       gsap.registerPlugin(SplitText);
 
-      Rellax(".rellax");
-
       var tl = gsap.timeline();
+
       setIsAnimating(true);
 
-      const chars = new SplitText(`.${styles.title__line}`, {
+      const chars = new SplitText(titleRef.current, {
         type: "words,chars",
       }).chars;
+
       tl.from(chars, {
         y: "100%",
         opacity: 0,
@@ -46,11 +54,15 @@ export default function Hero() {
         },
         "4"
       );
+
+      return () => {
+        tl.kill();
+      };
     }
   }, [hasSplitText]);
 
   return (
-    <header className={styles.hero}>
+    <header className={`${styles.hero} ${isAnimating ? styles['hero--is-animating'] : ''}`}>
       <div className={`${styles.bg} rellax`}>
         <VideoComplete
           src={"videos/Header_Cropped_WEBM"}
@@ -60,25 +72,21 @@ export default function Hero() {
 
       <div className={styles.content}>
         <h1
-          className={`${styles.title} d--none--sm rellax ${
-            isAnimating ? "" : "o--0"
-          }`}
-          ref={titleRef}
+          className={cn(styles.title, "rellax")}
           data-rellax-speed="2"
         >
-          <span className={`${styles.title__line} text--left`}>Because</span>
-          <span className={`${styles.title__line} text--center`}>we met</span>
-          <span className={`${styles.title__line} text--right`}>before</span>
+          <span ref={el => titleRef.current[0] = el} className={`${styles.title__line} text--left`}>Because</span>
+          <span ref={el => titleRef.current[1] = el} className={`${styles.title__line} text--center`}>we met</span>
+          <span ref={el => titleRef.current[2] = el} className={`${styles.title__line} text--right`}>before</span>
         </h1>
 
-        <h1
-          className="d--none d--sm ${isAnimating ? '' : 'o--0'}"
-          ref={titleRef}
-        >
+        <h1 className={styles["title--mobile"]}>
           Because we met before
         </h1>
         <div
-          className={`${styles.body} ${isAnimating ? "" : "o--0"} rellax`}
+          className={cn(styles.body, "rellax", {
+            "o--0": !isAnimating,
+          })}
           ref={bodyRef}
           data-rellax-speed="1"
         >
@@ -88,7 +96,7 @@ export default function Hero() {
           </p>
 
           <Link className="hero__cta button" href="#more">
-            More
+            <span className="button__label">More</span>
           </Link>
         </div>
       </div>

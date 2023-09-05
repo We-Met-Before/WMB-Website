@@ -1,5 +1,4 @@
 @import "../../styles/abstracts";
-@import "../../styles/elements/badge";
 
 .footer {
   display: flex;
@@ -14,7 +13,7 @@
 .list {
   display: flex;
   margin-top: $gutter--lg;
-  gap: 1rem;
+  gap: $grid--gutter;
   align-items: center;
   justify-content: center;
   margin-bottom: $gutter--lg;

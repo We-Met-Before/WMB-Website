@@ -23,11 +23,11 @@ html {
 
   @include break("sm", "max") {
     --font-size--h2: #{$font-size--h2 * 0.6};
-    --font-size--h1: #{$font-size--h2 / 2 };
+    --font-size--h1: #{$font-size--h2 / 2};
   }
 
   @include break("lg", "min") {
-    --font-size--h1: #{$font-size--h1*2};
+    --font-size--h1: #{$font-size--h1 * 2};
   }
 }
 
@@ -39,7 +39,7 @@ body {
 }
 
 #{$headings} {
-  // font-family: $font--display;
+  font-family: $font--heading;
   line-height: $line-height--heading;
   font-weight: $font-weight--heading;
   margin: 0 0;
@@ -53,6 +53,10 @@ h2 {
   text-transform: $font--transform-heading;
 }
 
+.is-display,
+h1 {
+  font-family: $font--display;
+}
 button,
 input,
 select,
@@ -217,11 +221,11 @@ figure figcaption {
 
   &--clamp {
     display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;  
-  overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
-  
+
   &--uppercase {
     text-transform: uppercase;
   }
@@ -232,14 +236,22 @@ figure figcaption {
 }
 
 .article {
-  color: rgba(color(white, base), .65);
+  color: rgba(color(white, base), 0.65);
   font-size: 1rem;
   line-height: 1.5;
+
+  &--description {
+    color: rgba(color(white, base), 0.65);
+    line-height: 1.5;
+    max-width: 400px;
+  }
 
   #{$headings} {
     color: color(white, base);
   }
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-size: $font-size--h3;
   }
   & > *:first-child {
@@ -251,41 +263,39 @@ figure figcaption {
   }
 
   p {
-		margin: $gutter--md 0;
-	}
+    margin: $gutter--md 0;
+  }
 
   h1,
-	h2,
-	h3,
-	h4,
-	h5 {
-		margin-top: $gutter--lg;
-		margin-bottom: $gutter--md;
-	}
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin-top: $gutter--lg;
+    margin-bottom: $gutter--md;
+  }
 
+  ul,
+  ol {
+    padding-left: $gutter--md;
 
-	ul,
-	ol {
-		padding-left: $gutter--md;
+    li {
+      margin-bottom: $gutter--sm;
+    }
+  }
 
-		li {
-			margin-bottom: $gutter--sm;
-		}
-	}
+  ul {
+    list-style: disc;
+  }
 
-	ul {
-		list-style: disc;
-	}
-
-	a {
-		text-decoration: underline;
+  a {
+    text-decoration: underline;
     transition: $transition--base;
 
     &:hover {
       color: color(white, base);
     }
-	}
-
+  }
 
   p:has(img) {
     max-width: 100%;

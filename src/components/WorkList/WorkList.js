@@ -17,15 +17,11 @@ export default function WorkList({ projects }) {
   const router = useRouter();
   const slideImagesRef = useRef([]);
   const [transitioning, setTransitioning] = useState(false);
-  const transitionTargetRef = useRef(null);
 
   const [project, setProject] = useProjectContext();
+  gsap.registerPlugin(Flip);
 
-  useEffect(() => {
-    gsap.registerPlugin(Flip);
-    // set initial position
-    // gsap.set(heroImage.current, { y: "-10%" });
-  });
+  let state;
 
   useEffect(() => {
     if (transitioning !== false) {
@@ -34,8 +30,6 @@ export default function WorkList({ projects }) {
         y: "32px",
         opacity: 0,
         duration: 0.5,
-
-        // ease: 'Power3.easeOut'
       });
 
       // update project info to display in the hero
@@ -47,12 +41,11 @@ export default function WorkList({ projects }) {
 
       Flip.fit("#top-header", slideImagesRef.current[transitioning]);
 
-      const state = Flip.getState("#top-header");
+      state = Flip.getState("#top-header");
       gsap.set("#top-header", { clearProps: true });
 
       Flip.from(state, {
         duration: 1,
-        // ease: "Power3.easeOut",
         scale: false,
         onComplete: () => {
           router.push("/projects/" + projects[transitioning].id);
@@ -60,10 +53,15 @@ export default function WorkList({ projects }) {
         },
       });
     }
+
+    return () => {
+      gsap.killTweensOf(".splide");
+      Flip.killFlipsOf(state);
+    };
   }, [transitioning, projects, router, setProject]);
 
-  const openPage = (index) => {
-    setTransitioning(index);
+  const openPage = (i) => {
+    setTransitioning(i);
   };
 
   useEffect(() => {
@@ -77,8 +75,7 @@ export default function WorkList({ projects }) {
       pagination: false,
       perMove: 1,
       gap: "4rem",
-      speed: 1009,
-      autoScroll: false,
+      speed: 1000,
       autoScroll: {
         speed: 0.2,
       },
@@ -97,6 +94,10 @@ export default function WorkList({ projects }) {
     splide.on("move", (e) => {
       setTargetSlide(e);
     });
+
+    return () => {
+      splide.destroy();
+    };
   }, [projects]);
 
   return (
@@ -106,55 +107,38 @@ export default function WorkList({ projects }) {
       <div className="container">
         <header className={styles.header}>
           <div>
-            <p className="text--max-width text--light">
-              You should be inspired by our greatly written storytelling texts
-              above but lets take you on a journey through our projects.
-            </p>
+            <p className="article--description">You should be inspired by our greatly written storytelling texts above but lets take you on a journey through our projects.</p>
           </div>
           <Link href="#contact" className="button">
-            Start a project
+            <span className="button__label">Start a project</span>
           </Link>
         </header>
       </div>
       <div>
         {projects.length > 0 && (
           <section className={`splide ${styles.slider}`}>
-            
             <div className="splide__track">
               <div className="splide__list">
                 {projects.map((project, index) => (
                   <li
-                    className={`${styles.slide} splide__slide ${
-                      targetSlide == index ? styles["slide--active"] : ""
-                    }`}
+                    className={`${styles.slide} splide__slide ${targetSlide == index && styles["slide--active"]}`}
                     key={index}
-                    href={`/projects/${project.id}`}
-                    // onMouseEnter={console.log("hai")}
-
                     onClick={() => {
                       openPage(index);
                     }}
                   >
-                    <div className={'cursor-trigger'}>
+                    <div className={"cursor-trigger"}>
                       <div
                         className={styles.img__wrapper}
                         ref={(element) => {
                           slideImagesRef.current[index] = element;
                         }}
                       >
-                        <Image
-                          src={project.image}
-                          width={200}
-                          height={400}
-                          alt=""
-                        />
+                        <Image src={project.image} width={200} height={400} alt="" />
                       </div>
                       <section className={styles.body}>
                         <h4 className={styles.body__title}>{project.title}</h4>
-
-                        <p className="text--light text--clamp">
-                          {project.excerpt}
-                        </p>
+                        <p className="text--light text--clamp">{project.excerpt}</p>
                       </section>
                     </div>
                   </li>
