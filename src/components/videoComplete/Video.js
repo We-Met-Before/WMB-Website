@@ -1,3 +1,4 @@
+import ExportedImage from "next-image-export-optimizer";
 import Image from "next/image";
 import { forwardRef, useRef } from "react";
 
@@ -7,7 +8,7 @@ const Video = forwardRef(({ src, width = 300, height = 300, poster, autoPlay = t
     <source src={`${src}.webm`} type="video/webm" />
     <source src={`${src}.ogv`} type="video/ogg" />
 
-    <Image src={`${src}.jpg`} width={width} height={height} alt={""} />
+    <ExportedImage src={`${src}.jpg`} width={width} height={height} alt={""} />
   </video>
 ));
 

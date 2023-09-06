@@ -1,3 +1,14 @@
 node_modules
 .next
 out
+public/images/nextImageExportOptimizer
+public/nextImageExportOptimizer
+public/**/**/**/nextImageExportOptimizer
+public/**/**/nextImageExportOptimizer
+public/**/nextImageExportOptimizer
+
+public/images/optimized
+public/optimized
+public/**/**/**/optimized
+public/**/**/optimized
+public/**/optimized

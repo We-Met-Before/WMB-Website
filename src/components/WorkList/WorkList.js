@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useProjectContext } from "../../root/project";
 import styles from "./WorkList.module.scss";
+import ExportedImage from "next-image-export-optimizer";
 
 export default function WorkList({ projects }) {
   const [targetSlide, setTargetSlide] = useState(0);
@@ -21,9 +22,8 @@ export default function WorkList({ projects }) {
   const [project, setProject] = useProjectContext();
   gsap.registerPlugin(Flip);
 
-  let state;
-
   useEffect(() => {
+    let state;
     if (transitioning !== false) {
       // animate all visible slides on the page
       gsap.to(".splide", {
@@ -45,7 +45,7 @@ export default function WorkList({ projects }) {
       gsap.set("#top-header", { clearProps: true });
 
       Flip.from(state, {
-        duration: .4,
+        duration: 0.4,
         scale: false,
         onComplete: () => {
           router.push("/projects/" + projects[transitioning].id);
@@ -102,9 +102,8 @@ export default function WorkList({ projects }) {
 
   return (
     <section className={styles.wrapper}>
-
       <div className="container--offset">
-      <h1 className={styles.title}>Work</h1>
+        <h1 className={styles.title}>Work</h1>
         <header className={styles.header}>
           <div>
             <p className="article--description">You should be inspired by our greatly written storytelling texts above but lets take you on a journey through our projects.</p>
@@ -134,7 +133,7 @@ export default function WorkList({ projects }) {
                           slideImagesRef.current[index] = element;
                         }}
                       >
-                        <Image src={project.image} width={200} height={400} alt="" />
+                        <ExportedImage src={project.image} fill={true} alt="" />
                       </div>
                       <section className={styles.body}>
                         <h4 className={styles.body__title}>{project.title}</h4>

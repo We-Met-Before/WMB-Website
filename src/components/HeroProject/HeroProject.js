@@ -7,6 +7,7 @@ import Image from "next/image";
 import styles from "./HeroProject.module.scss";
 import classNames from "classnames";
 import Rellax from "rellax";
+import ExportedImage from "next-image-export-optimizer";
 
 const cn = classNames.bind(styles);
 
@@ -42,7 +43,8 @@ export default function HeroProject({ image, alt, inline }) {
       className={` ${styles.hero} rellax ${useImage === null ? styles.inactive : ""} ${inline ? styles.inline : ""}`}
       data-rellax-speed="2"
     >
-      {useImage && <Image src={useImage} width={200} height={200} alt={"alt"} />}
+      {useImage && <ExportedImage src={useImage} fill={true} alt={"alt"} />}
+      
     </header>
   );
 }

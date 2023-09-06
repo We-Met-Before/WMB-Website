@@ -7,12 +7,6 @@ body {
   overflow: hidden;
   min-height: 100vh;
   position: relative;
-
-  &--xl {
-    @extend .section;
-    min-height: 200vh;
-    overflow: visible;
-  }
 }
 
 

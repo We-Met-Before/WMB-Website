@@ -27,15 +27,15 @@ export default function ExternalScripts() {
   return (
     <>
       <Script
-        src="/about/packages/ScrollTrigger.min.js"
+        src="/lib/ScrollTrigger.min.js"
         onLoad={() => setHasScrollTrigger(true)}
       />
       <Script
-        src="/about/packages/SplitText.min.js"
+        src="/lib/SplitText.min.js"
         onLoad={() => setHasSplitText(true)}
       />
       <Script
-        src="/about/packages/ScrollSmoother.min.js"
+        src="/lib/ScrollSmoother.min.js"
         onLoad={() => setHasScrollSmooth(true)}
       />
     </>

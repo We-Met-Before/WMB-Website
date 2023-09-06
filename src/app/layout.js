@@ -6,6 +6,14 @@ import ExternalScripts from "../components/externalScripts/externalScripts";
 import Head from "next/head";
 
 export const metadata = {
+  metadataBase: new URL('https://wemetbefore.com'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'de-DE': '/de-DE',
+    },
+  },
   title: "We Met Before - Digital Design & Development Studio",
   description: "A community of freelance creatives, co-creating new realities from infinite possibilities. We focus on branding, web-design and development.",
   openGraph: {

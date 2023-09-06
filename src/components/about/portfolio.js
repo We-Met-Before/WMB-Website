@@ -1,3 +1,4 @@
+import ExportedImage from "next-image-export-optimizer";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
@@ -15,7 +16,7 @@ export default function Portfolio({ portfolioItems }) {
               <Link className="mbPortfolioItem_link" href={item.url ? item.url : ''} target="_blank">
                 <div className="mbPortfolioItem_link">
                   <div className="mbPortfolioItem_imageWrapper">
-                    <Image src={item.image} width={300} height={300} className="mbPortfolioItem_image" alt={item.name} />
+                    <ExportedImage src={item.image} width={300} height={300} className="mbPortfolioItem_image" alt={item.name} />
                   </div>
                   <div className="mbPortfolioItem_content">
                     <h4 className="mbPortfolioItem_title">{item.name}</h4>

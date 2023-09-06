@@ -45,7 +45,7 @@ export default function Hero() {
         duration: 1,
         ease: "Power3.easeOut",
         stagger: 0.018,
-        delay: 3,
+        delay: 1.5,
       });
 
       tl.from(

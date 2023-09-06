@@ -1,11 +1,22 @@
 @import "../../styles/abstracts";
 
+
+.wrapper {
+  position: relative;
+  padding-top: 100%;
+}
+
+.inner {
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate3d(-50%,-50%, 0);
+}
 .content {
   display: flex;
   gap: $gutter--lg;
   flex-direction: column;
   align-items: center;
-
 }
 
 .alternating {

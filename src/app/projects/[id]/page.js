@@ -6,6 +6,7 @@ import styles from "./page.module.scss";
 import Image from "next/image";
 import Cursor from "../../../components/Cursor/Cursor";
 import Link from "next/link";
+import ExportedImage from "next-image-export-optimizer";
 
 // Generate the post, note that this is a "react server component"! it is
 // allowed to be async
@@ -39,8 +40,7 @@ export default async function Post({ params: { id } }) {
       </div>
       <Link href="/" className="cursor-trigger--back">
       <footer className={styles.footer}>
-        <Image src={image} alt="" width={200} height={200} />
-        
+        <ExportedImage src={image} alt="" fill={true} />
       </footer>
       </Link>
 

@@ -902,17 +902,17 @@ function AboutContent({portfolioItems}) {
   return (
     <>
       <Script
-        src="/about/packages/ScrollSmoother.min.js"
+        src="/lib/ScrollSmoother.min.js"
         onLoad={() => setHasScrollSmoother(true)}
         onReady={() => setHasScrollSmoother(true)}
       />
       <Script
-        src="/about/packages/SplitText.min.js"
+        src="/lib/SplitText.min.js"
         onLoad={() => setHasSplitText(true)}
         onReady={() => setHasSplitText(true)}
       />
       <Script
-        src="/about/packages/ScrollTrigger.min.js"
+        src="/lib/ScrollTrigger.min.js"
         onLoad={() => setHasScrollTrigger(true)}
         onReady={() => setHasScrollTrigger(true)}
       />
@@ -926,7 +926,7 @@ function AboutContent({portfolioItems}) {
           <Link href="/" className="button mbMenuLogo">
             <img
               className="logoWmb mark"
-              src="about/assets/graphics/logo-mark.svg"
+              src="/graphics/logo-mark.svg"
               alt="We Met Before Logo"
             />
           </Link>
@@ -967,7 +967,7 @@ function AboutContent({portfolioItems}) {
           <div className="mbRotateLogoCirlce">
             <img
               className="mbLogo"
-              src="about/assets/graphics/logo_white.svg"
+              src="/graphics/logo_white.svg"
               alt="We Met Before Logo"
             />
             <div className="mbCircle sphereGradient"></div>
@@ -1012,12 +1012,12 @@ function AboutContent({portfolioItems}) {
                 <div className="headsRotateContinu">
                   <img
                     className="mbHead mbHead1"
-                    src="about/assets/images/hero_head_top.png"
+                    src="/images/hero_head_top.png"
                     alt="Hero Head Image Top"
                   />
                   <img
                     className="mbHead mbHead2"
-                    src="about/assets/images/hero_head_bottom.png"
+                    src="/images/hero_head_bottom.png"
                     alt="Hero Head Image Bottom"
                   />
                 </div>
@@ -1025,17 +1025,17 @@ function AboutContent({portfolioItems}) {
               <div className="mbIntroAstroids">
                 <img
                   className="mbAstroid mbAstroid1"
-                  src="about/assets/images/mb_astroid1.png"
+                  src="/images/mb_astroid1.png"
                   alt="Hero Astroid Image"
                 />
                 <img
                   className="mbAstroid mbAstroid2"
-                  src="about/assets/images/mb_astroid2.png"
+                  src="/images/mb_astroid2.png"
                   alt="Hero Astroid Image"
                 />
                 <img
                   className="mbAstroid mbAstroid3"
-                  src="about/assets/images/mb_astroid3.png"
+                  src="/images/mb_astroid3.png"
                   alt="Hero Astroid Image"
                 />
               </div>
@@ -1057,15 +1057,18 @@ function AboutContent({portfolioItems}) {
           <section id="anchorServices" className="mbServicesContainerWrapper">
             <div className="mbServicesContainerIntro">
               <img
-                src="about/assets/images/mb_astroid1.png"
+                src="/images/mb_astroid1.png"
+                alt=""
                 className="mbServicesIntro_Asteroid mbServicesIntro_Asteroid1"
               />
               <img
-                src="about/assets/images/mb_astroid2.png"
+                src="/images/mb_astroid2.png"
+                alt=""
                 className="mbServicesIntro_Asteroid mbServicesIntro_Asteroid2"
               />
               <img
-                src="about/assets/images/mb_astroid3.png"
+                src="/images/mb_astroid3.png"
+                alt=""
                 className="mbServicesIntro_Asteroid mbServicesIntro_Asteroid3"
               />
             </div>
@@ -1073,32 +1076,38 @@ function AboutContent({portfolioItems}) {
             <div className="mbServicesContainer">
               <div className="mbServicesTopRow">
                 <img
-                  src="about/assets/icons/icon_ai.png"
+                  src="/icons/icon_ai.png"
+                  alt=""
                   className="mbServiceIcon mbServiceIconBranding"
                   id="mbServiceIconBranding1"
                 />
                 <img
-                  src="about/assets/icons/icon_figma.png"
+                  src="/icons/icon_figma.png"
+                  alt=""
                   className="mbServiceIcon mbServiceIconBranding"
                   id="mbServiceIconBranding2"
                 />
                 <img
-                  src="about/assets/icons/icon_figma.png"
+                  src="/icons/icon_figma.png"
+                  alt=""
                   className="mbServiceIcon mbServiceIconDesign"
                   id="mbServiceIconDesign1"
                 />
                 <img
-                  src="about/assets/icons/icon_ae.png"
+                  src="/icons/icon_ae.png"
+                  alt=""
                   className="mbServiceIcon mbServiceIconDesign"
                   id="mbServiceIconDesign2"
                 />
                 <img
-                  src="about/assets/icons/icon_webflow.png"
+                  src="/icons/icon_webflow.png"
+                  alt=""
                   className="mbServiceIcon mbServiceIconDevelopment"
                   id="mbServiceIconDevelopment1"
                 />
                 <img
-                  src="about/assets/icons/icon_react.png"
+                  src="/icons/icon_react.png"
+                  alt=""
                   className="mbServiceIcon mbServiceIconDevelopment"
                   id="mbServiceIconDevelopment2"
                 />
@@ -1265,32 +1274,38 @@ function AboutContent({portfolioItems}) {
 
               <div className="mbServicesBottomRow">
                 <img
-                  src="about/assets/icons/icon_ux.png"
+                  src="/icons/icon_ux.png"
+                  alt=""
                   className="mbServiceIcon mbServiceIconBranding"
                   id="mbServiceIconBranding3"
                 />
                 <img
-                  src="about/assets/icons/icon_sketch.png"
+                  src="/icons/icon_sketch.png"
+                  alt=""
                   className="mbServiceIcon mbServiceIconBranding"
                   id="mbServiceIconBranding4"
                 />
                 <img
-                  src="about/assets/icons/icon_sketch.png"
+                  src="/icons/icon_sketch.png"
+                  alt=""
                   className="mbServiceIcon mbServiceIconDesign"
                   id="mbServiceIconDesign3"
                 />
                 <img
-                  src="about/assets/icons/icon_xd.png"
+                  src="/icons/icon_xd.png"
+                  alt=""
                   className="mbServiceIcon mbServiceIconDesign"
                   id="mbServiceIconDesign4"
                 />
                 <img
-                  src="about/assets/icons/icon_next.png"
+                  src="/icons/icon_next.png"
+                  alt=""
                   className="mbServiceIcon mbServiceIconDevelopment"
                   id="mbServiceIconDevelopment3"
                 />
                 <img
-                  src="about/assets/icons/icon_gatsby.png"
+                  src="/icons/icon_gatsby.png"
+                  alt=""
                   className="mbServiceIcon mbServiceIconDevelopment"
                   id="mbServiceIconDevelopment4"
                 />
@@ -1303,12 +1318,12 @@ function AboutContent({portfolioItems}) {
               <div className="mbContactHeadsWrapper">
                 <img
                   className="mbFooterHead mbFooterHead1"
-                  src="about/assets/images/hero_head_top.png"
+                  src="/images/hero_head_top.png"
                   alt="We Met Before Head Illustration"
                 />
                 <img
                   className="mbFooterHead mbFooterHead2"
-                  src="about/assets/images/hero_head_bottom.png"
+                  src="/images/hero_head_bottom.png"
                   alt="We Met Before Head Illustration"
                 />
                 <div className="mbFooterBoll sphereGradient"></div>

@@ -22,7 +22,8 @@
 
 
 .container--offset {
-  
+  margin-left: $gutter--md;
+    margin-right: $gutter--md;
   @media only screen and (min-width: calc(#{$grid--container} + #{$gutter--xl*2})) {
     margin-left: $gutter--xl;
     margin-right: $gutter--xl;

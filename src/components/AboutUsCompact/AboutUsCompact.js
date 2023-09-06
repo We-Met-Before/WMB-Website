@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./AboutUsCompact.module.scss";
 import { useEffect, useState } from "react";
+import ExportedImage from "next-image-export-optimizer";
 
 export default function AboutUsCompact({ people }) {
   const [list, setList] = useState([]);
@@ -24,7 +25,7 @@ export default function AboutUsCompact({ people }) {
             {list.length > 0 &&
               list.map((person) => (
                 <li className={styles.list__item} key={person.name}>
-                  <Image
+                  <ExportedImage
                     className={styles.list_img}
                     src={person.image}
                     width={60}

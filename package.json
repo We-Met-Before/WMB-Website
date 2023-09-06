@@ -14,6 +14,7 @@
     "gray-matter": "^4.0.3",
     "gsap": "^3.12.2",
     "next": "13.4.19",
+    "next-image-export-optimizer": "^1.8.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rehype-autolink-headings": "^6.1.1",
@@ -35,7 +36,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next-image-export-optimizer",
     "start": "next start",
     "lint": "next lint"
   },
@@ -48,5 +49,9 @@
   "bugs": {
     "url": "https://github.com/We-Met-Before/WMB-Website/issues"
   },
-  "homepage": "https://github.com/We-Met-Before/WMB-Website#readme"
+  "homepage": "https://github.com/We-Met-Before/WMB-Website#readme",
+  "devDependencies": {
+    "responsive-loader": "^3.1.2",
+    "sharp": "^0.32.5"
+  }
 }

@@ -1,10 +1,8 @@
 "use client";
 
 import { gsap } from "gsap";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
-import image_off from "public/images/WMB_MID_OFF.png";
-import image_on from "public/images/WMB_MID_ON.png";
 import { useEffect, useRef } from "react";
 import { useExtLoaderContext } from "../../root/loader";
 import styles from "./IdeasCome.module.scss";
@@ -35,7 +33,7 @@ export default function IdeasCome() {
     return () => {
       gsap.killTweensOf(children[0]);
       gsap.killTweensOf(children[1]);
-    }
+    };
   }, [titleRef]);
 
   useEffect(() => {
@@ -71,38 +69,40 @@ export default function IdeasCome() {
       });
 
       return () => {
-        gsap.killTweensOf(imageOfRef.current);
-        gsap.killTweensOf(bgRef.current);
+        if (imageOfRef.current) gsap.killTweensOf(imageOfRef.current);
+        if (bgRef.current) gsap.killTweensOf(bgRef.current);
       };
     }
   }, [hasScrollTrigger]);
 
   return (
-    <section className="section--xl flex--center" ref={wrapperRef}>
+    <section className={styles.wrapper} ref={wrapperRef}>
       <div className="backdrop--media" ref={bgRef}>
-        <Image src={image_on} alt="" />
-        <Image src={image_off} alt="" ref={imageOfRef} style={{ opacity: 1 }} />
+        <ExportedImage src={"/images/WMB_MID_ON.png"} fill alt="" placeholder="" />
+        <ExportedImage src={"/images/WMB_MID_OFF.png"} fill alt="" placeholder="" ref={imageOfRef} style={{ opacity: 1 }} />
       </div>
 
-      <div className="container text--center">
-        <div className={styles.content}>
-          <h1 className={styles.title}>
-            <span className="text--line">Where</span>
-            <span className="text--line flex">
-              <span className={styles.alternating} ref={titleRef}>
-                <span className={styles.alternating__first}>ideas</span>
-                <span className={styles.alternating__second}>we</span>
+      <div className={styles.inner}>
+        <div className="container text--center">
+          <div className={styles.content}>
+            <h1 className={styles.title}>
+              <span className="text--line">Where</span>
+              <span className="text--line flex">
+                <span className={styles.alternating} ref={titleRef}>
+                  <span className={styles.alternating__first}>ideas</span>
+                  <span className={styles.alternating__second}>we</span>
+                </span>
+                <span>come</span>
               </span>
-              <span>come</span>
-            </span>
-            <span className="text--line">together.</span>
-          </h1>
-          <p className="article--description">
-            If paths cross on the right moment you feel a source of euforic energy flowing through your body. Let us make sure your idea makes people feel the same way.
-          </p>
-          <Link href="#work" className="button">
-            <span className="button__label">outcome</span>
-          </Link>
+              <span className="text--line">together.</span>
+            </h1>
+            <p className="article--description">
+              If paths cross on the right moment you feel a source of euforic energy flowing through your body. Let us make sure your idea makes people feel the same way.
+            </p>
+            <Link href="#work" className="button">
+              <span className="button__label">outcome</span>
+            </Link>
+          </div>
         </div>
       </div>
     </section>

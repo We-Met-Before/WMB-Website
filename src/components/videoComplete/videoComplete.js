@@ -8,16 +8,16 @@ export default function VideoComplete({ width, height, src, loop }) {
 
   let timer;
 
-  const onLoopEnd = () => {
-    setPlayLoop(false);
-    clearTimeout(timer);
-    
-    timer = setTimeout(() => {
-      setPlayLoop(true);
-    }, Math.random() * 1000 + 1000);
-  };
-
   useEffect(() => {
+    const onLoopEnd = () => {
+      setPlayLoop(false);
+      clearTimeout(timer);
+
+      timer = setTimeout(() => {
+        setPlayLoop(true);
+      }, Math.random() * 1000 + 1000);
+    };
+
     if (srcRef.current && loopRef.current) {
       srcRef.current.addEventListener("ended", onLoopEnd);
       loopRef.current.addEventListener("ended", onLoopEnd);
