@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import styles from "./HeroProject.module.scss";
 import classNames from "classnames";
+import Rellax from "rellax";
 
 const cn = classNames.bind(styles);
 
@@ -13,6 +14,14 @@ export default function HeroProject({ image, alt, inline }) {
   const [project, setProject] = useProjectContext();
   const [useImage, setUseImage] = useState(null);
   const pathname = usePathname();
+
+  useEffect(() => {
+    var rellax = Rellax(".rellax");
+
+    return () => {
+      rellax.destroy();
+    };
+  }, [Rellax]);
 
   useEffect(() => {
     if (!pathname.includes(project?.id)) {
@@ -30,10 +39,8 @@ export default function HeroProject({ image, alt, inline }) {
   return (
     <header
       id="top-header"
-      className={cn(styles.hero, {
-        inactive: useImage === null,
-        inline: inline,
-      })}
+      className={` ${styles.hero} rellax ${useImage === null ? styles.inactive : ""} ${inline ? styles.inline : ""}`}
+      data-rellax-speed="2"
     >
       {useImage && <Image src={useImage} width={200} height={200} alt={"alt"} />}
     </header>

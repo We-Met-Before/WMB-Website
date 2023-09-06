@@ -17,3 +17,16 @@
     margin-top: 80vh;
     position: relative;
 }
+
+.footer {
+    max-height: 600px;
+    position: relative;
+    display: flex;
+    margin-top: $gutter--lg;
+    margin-bottom: $gutter--xl;
+
+    img {
+        max-height: 100%;
+        object-fit: cover;
+    }
+}

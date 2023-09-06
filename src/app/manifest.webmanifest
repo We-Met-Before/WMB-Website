@@ -1,0 +1,20 @@
+{
+  "name": "We Met Before",
+  "short_name": "WMB",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "A community of freelance creatives, co-creating new realities from infinite possibilities. We focus on branding, web-design and development.",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ]
+}

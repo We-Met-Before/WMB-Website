@@ -78,7 +78,7 @@ export default function IdeasCome() {
   }, [hasScrollTrigger]);
 
   return (
-    <section className="section flex--center" ref={wrapperRef}>
+    <section className="section--xl flex--center" ref={wrapperRef}>
       <div className="backdrop--media" ref={bgRef}>
         <Image src={image_on} alt="" />
         <Image src={image_off} alt="" ref={imageOfRef} style={{ opacity: 1 }} />

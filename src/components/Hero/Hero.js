@@ -20,7 +20,11 @@ export default function Hero() {
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
-    Rellax(".rellax");
+    var rellax = Rellax(".rellax");
+
+    return () => {
+      rellax.destroy();
+    }
   }, [Rellax]);
 
   useEffect(() => {

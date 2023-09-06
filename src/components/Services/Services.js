@@ -1,11 +1,11 @@
 "use client";
 
+import classNames from "classnames";
 import { gsap } from "gsap";
 import { useEffect, useRef, useState } from "react";
 import { useExtLoaderContext } from "../../root/loader";
 import Video from "../videoComplete/Video";
 import styles from "./Services.module.scss";
-import classNames from "classnames";
 
 const cn = classNames.bind(styles);
 

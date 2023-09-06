@@ -12,6 +12,7 @@
 	background-size: 100%;
 	position: relative;
 
+	background: color(black, base);
 	&--xl {
 		width: $icon-size--base*3;
 		height: $icon-size--base*3;
@@ -33,6 +34,7 @@
 	}
 
 	@each $icon in $icons {
+		@debug $icon;
 		&--#{$icon} {
 			mask-image: url(#{$icon-url + 'icon--' + $icon + '.svg' });
 		}

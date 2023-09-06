@@ -5,6 +5,7 @@ import HeroProject from "../../../components/HeroProject/HeroProject";
 import styles from "./page.module.scss";
 import Image from "next/image";
 import Cursor from "../../../components/Cursor/Cursor";
+import Link from "next/link";
 
 // Generate the post, note that this is a "react server component"! it is
 // allowed to be async
@@ -13,8 +14,11 @@ export default async function Post({ params: { id } }) {
 
   return (
     <>
-      <HeroProject image={image} />
+      <Link href="/" className="cursor-trigger--back">
+        <HeroProject image={image} inline={true} />
+      </Link>
       <Cursor />
+      
       <div className={styles.wrapper}>
         <header className={styles.header}>
           <div className="container">
@@ -29,16 +33,16 @@ export default async function Post({ params: { id } }) {
               <h4>About the project</h4>
             </aside>
 
-            <article
-              className="article"
-              dangerouslySetInnerHTML={{ __html: content }}
-            ></article>
+            <article className="article" dangerouslySetInnerHTML={{ __html: content }}></article>
           </div>
         </div>
       </div>
-      <footer>
+      <Link href="/" className="cursor-trigger--back">
+      <footer className={styles.footer}>
         <Image src={image} alt="" width={200} height={200} />
+        
       </footer>
+      </Link>
 
       <Footer />
     </>

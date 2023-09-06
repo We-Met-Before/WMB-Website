@@ -45,7 +45,7 @@ export default function WorkList({ projects }) {
       gsap.set("#top-header", { clearProps: true });
 
       Flip.from(state, {
-        duration: 1,
+        duration: .4,
         scale: false,
         onComplete: () => {
           router.push("/projects/" + projects[transitioning].id);
@@ -102,9 +102,9 @@ export default function WorkList({ projects }) {
 
   return (
     <section className={styles.wrapper}>
-      <h1 className={styles.title}>Work</h1>
 
-      <div className="container">
+      <div className="container--offset">
+      <h1 className={styles.title}>Work</h1>
         <header className={styles.header}>
           <div>
             <p className="article--description">You should be inspired by our greatly written storytelling texts above but lets take you on a journey through our projects.</p>

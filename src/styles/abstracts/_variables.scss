@@ -22,7 +22,7 @@ $gutter--xl: 4rem;
 
 $logo--base: 3.125rem;
 
-$icon-url: 'assets/icons/';
+$icon-url: '/icons/';
 $icon-size--base: 1em;
 $icon-size--lg: $icon-size--base * 1.5;
 $icon-size--sm: $icon-size--base * 0.75;
@@ -30,8 +30,7 @@ $icon-color: call(get-function('color'), primary, base);
 $icon-color--light: call(get-function('color'), light, base);
 $icon-color--dark: call(get-function('color'), dark, base);
 
-// $icons: 'link', 'arrow', 'close', 'arrow-back', 'arrow-diagonal', 'expand';
-// $icons;
+$icons: 'full-screen', 'back', 'forward';
 
 $grid--col-count: 12;
 $grid--gutter: 32px;

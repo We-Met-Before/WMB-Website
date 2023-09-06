@@ -23,6 +23,10 @@
   }
 }
 
+.inline {
+  pointer-events: all;
+}
+
 .inactive {
   opacity: 0;
   pointer-events: none;

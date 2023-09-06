@@ -1,6 +1,6 @@
 .cursor {
-  width: $gutter--md;
-  height: $gutter--md;
+  width: $icon-size--base*1.5;
+  height: $icon-size--base*1.5;
   background: white;
   pointer-events: none;
   position: fixed;
@@ -9,7 +9,7 @@
   z-index: 9;
   border-radius: 100%;
   transition: 0.3s transform $transition--bezier-timing;
-  transform: scale(1) translate3d($gutter--sm, $gutter--sm, 0);
+  transform: scale(0) translate3d($gutter--sm, $gutter--sm, 0);
   transform-origin: center center;
   display: flex;
   justify-content: center;
@@ -18,19 +18,14 @@
 
   &--active {
     box-shadow: none;
-    transform: scale(5);
+    transform: scale(3);
   }
 
   &__icon {
-    width: $gutter--sm;
-    height: $gutter--md;
-    transition: $transition--bezier;
+    transition: transform .2s $transition--bezier-timing;
     transform: scale(0);
 
-    &--full,
-    &--external {
-      @extend .cursor__icon;
-    }
+    @extend .icon--full-screen !optional;
 
     &--active {
       transform: scale(1);
@@ -40,16 +35,38 @@
 body:has(.cursor-trigger:hover) .cursor {
   @extend .cursor--active;
 
-  .cursor__icon--full {
+  .cursor__icon {
     @extend .cursor__icon--active;
   }
 }
 
+body:has(.is-next:hover) .cursor {
+
+  .cursor__icon {
+    @extend .icon--forward !optional;
+  }
+}
+
+
+body:has(.is-prev:hover) .cursor {
+
+  .cursor__icon {
+    @extend .icon--back !optional;
+  }
+}
+
+
+
 body:has(.cursor-trigger--external:hover) .cursor {
   @extend .cursor--active;
   display: none;
+}
 
-  .cursor__icon--external {
+body:has(.cursor-trigger--back:hover) .cursor {
+  @extend .cursor--active;
+  
+  .cursor__icon {
     @extend .cursor__icon--active;
+    @extend .icon--back !optional;
   }
 }
