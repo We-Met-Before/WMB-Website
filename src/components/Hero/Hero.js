@@ -53,6 +53,7 @@ export default function Hero() {
         {
           opacity: 0,
           y: 32,
+          delay: 0,
           duration: 1,
           stagger: 1,
         },

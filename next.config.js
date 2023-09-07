@@ -4,14 +4,14 @@ const nextConfig = {
   images: {
     loader: "custom",
     imageSizes: [],
-    deviceSizes: [390, 640, 900, 1200, 1920, 2500],
+    deviceSizes: [390, 640, 900, 1200, 2500],
   },
   transpilePackages: ["next-image-export-optimizer"],
   env: {
     nextImageExportOptimizer_imageFolderPath: "public/images",
     nextImageExportOptimizer_exportFolderPath: "out",
     nextImageExportOptimizer_quality: 100,
-    nextImageExportOptimizer_storePicturesInWEBP: true,
+    nextImageExportOptimizer_storePicturesInWEBP: false,
     nextImageExportOptimizer_exportFolderName: "optimized",
 
     // If you do not want to use blurry placeholder images, then you can set

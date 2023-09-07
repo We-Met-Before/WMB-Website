@@ -78,8 +78,8 @@ export default function IdeasCome() {
   return (
     <section className={styles.wrapper} ref={wrapperRef}>
       <div className="backdrop--media" ref={bgRef}>
-        <ExportedImage src={"/images/WMB_MID_ON.png"} fill alt="" placeholder="" />
-        <ExportedImage src={"/images/WMB_MID_OFF.png"} fill alt="" placeholder="" ref={imageOfRef} style={{ opacity: 1 }} />
+        <ExportedImage src={"/images/WMB_MID_ON.png"} fill alt="" placeholder="empty" />
+        <ExportedImage src={"/images/WMB_MID_OFF.png"} fill alt="" placeholder="empty" ref={imageOfRef} style={{ opacity: 1 }} />
       </div>
 
       <div className={styles.inner}>
