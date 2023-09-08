@@ -16,6 +16,7 @@
     "next": "13.4.19",
     "next-image-export-optimizer": "^1.8.5",
     "react": "18.2.0",
+    "react-device-detect": "^2.2.3",
     "react-dom": "18.2.0",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0",
@@ -35,7 +36,7 @@
     "vfile-reporter": "^8.1.0"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -H 192.168.1.41",
     "build": "next build && next-image-export-optimizer",
     "start": "next start",
     "lint": "next lint"

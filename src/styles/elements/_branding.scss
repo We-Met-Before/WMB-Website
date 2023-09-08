@@ -3,6 +3,11 @@
     color: color(white, beige);
     text-align: right;
     margin: $gutter--sm 0;
+
+    @include break("sm", "max") {
+      font-size: $font-size--md;
+    }
+
     span:last-child {
       opacity: 0.3;
       font-weight: $font-weight--light;
