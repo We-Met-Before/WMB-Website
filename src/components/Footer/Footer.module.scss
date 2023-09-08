@@ -4,9 +4,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 80vh;
+  margin: $gutter--xl 0;
 
   @include break("sm", "min") {
-    min-height: 80vh;
+    
   }
 }
 
@@ -20,6 +22,7 @@
 
   @include break("sm", "max") {
     flex-direction: column;
+    gap: $gutter--sm;
   }
 }
 

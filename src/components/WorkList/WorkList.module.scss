@@ -9,9 +9,14 @@
 }
 
 .slider {
+  margin: $gutter--xl * 2 0;
+
+  @include break("sm", "max") {
+    padding-left: $gutter--lg;
+    margin: $gutter--xl 0;
+  }
   &:has(.card:hover) .cursor {
     @extend .cursor--active;
-    
     transform: scale(4) translate3d($gutter--sm, $gutter--sm, 0);
 
     .cursor__icon {
@@ -31,6 +36,7 @@
   &:hover img {
     transform: scale(1.07);
   }
+
   @include break("sm", "max") {
     img {
       transform: scale(1.05);
@@ -69,17 +75,17 @@
 }
 
 .img__wrapper {
-  aspect-ratio: 2/3;
   width: 100%;
   border-radius: $gutter--sm;
   overflow: hidden;
   position: relative;
-  
+  min-height: 700px;
+
+  @include break("sm", "max") {
+    min-height: 400px;
+  }
+
   img {
     object-fit: cover;
   }
-}
-
-.slider {
-  margin: $gutter--xl * 2 0;
 }

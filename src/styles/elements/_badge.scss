@@ -19,6 +19,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
+
+  @include break("sm", "max") {
+    font-size: $font-size--xxs;
+  }
   
   &--position {
     position: absolute;

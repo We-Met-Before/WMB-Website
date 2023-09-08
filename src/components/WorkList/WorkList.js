@@ -66,25 +66,34 @@ export default function WorkList({ projects }) {
 
   useEffect(() => {
     setTargetSlide(0);
-    
+
     const splide = new Splide(".splide", {
       type: "loop",
-      fixedWidth:  window.innerWidth > 800 ? "22vw" : "80vw",
+      fixedWidth: window.innerWidth > 800 ? "22vw" : "80vw",
       arrows: false,
       pagination: false,
-      perMove: 1,
       gap: "4rem",
-      speed: 1000,
-      autoScroll: {
-        speed: 0.2,
-      },
+      // // speed: 1000,
+      // speed: 0,
+      // autoScroll: false,
+      perPage: 1,
+      // autoScroll: {
+      //   speed: 0.2,
+      // },
       inView: {
         autoScroll: true,
       },
       outView: {
         autoScroll: false,
       },
+      breakpoints: {
+        640: {
+          autoScroll: false,
+          gap: "2rem",
+        },
+      },
     }).mount({ AutoScroll, Intersection });
+  // }).mount();
 
     splide.on("active", (e) => {
       setTargetSlide(e.slideIndex < 0 ? e.index : e.slideIndex);
@@ -107,46 +116,47 @@ export default function WorkList({ projects }) {
           <div>
             <p className="article--description">You should be inspired by our greatly written storytelling texts above but lets take you on a journey through our projects.</p>
           </div>
-          <Link href="#contact" className="button">
-            <span className="button__label">Start a project</span>
-          </Link>
+          <div className="d--none--sm">
+            <Link href="#contact" className="button">
+              <span className="button__label">Start a project</span>
+            </Link>
+          </div>
         </header>
       </div>
-      <div>
-        {projects.length > 0 && (
-          <section className={`splide ${styles.slider}`}>
-            <div className="splide__track">
-              <div className="splide__list">
-                {projects.map((project, index) => (
-                  <li
-                    className={`${styles.slide} splide__slide`}
-                    key={index}
-                    onClick={() => {
-                      openPage(index);
-                    }}
-                  >
-                    <div className={"cursor-trigger"}>
-                      <div
-                        className={styles.img__wrapper}
-                        ref={(element) => {
-                          slideImagesRef.current[index] = element;
-                        }}
-                      >
-                        <ExportedImage src={project.image} fill={true} placeholer="empty" alt="" />
-                      </div>
-                      <section className={styles.body}>
-                        <h4 className={styles.body__title}>{project.title}</h4>
-                        <p className="text--light text--clamp">{project.excerpt}</p>
-                      </section>
+
+      {projects.length > 0 && (
+        <section className={`splide ${styles.slider}`}>
+          <div className="splide__track">
+            <div className="splide__list">
+              {projects.map((project, index) => (
+                <li
+                  className={`${styles.slide} splide__slide`}
+                  key={index}
+                  onClick={() => {
+                    openPage(index);
+                  }}
+                >
+                  <div className={"cursor-trigger"}>
+                    <div
+                      className={styles.img__wrapper}
+                      ref={(element) => {
+                        slideImagesRef.current[index] = element;
+                      }}
+                    >
+                      <ExportedImage src={project.image} fill={true} placeholer="empty" alt="" />
                     </div>
-                  </li>
-                ))}
-              </div>
+                    <section className={styles.body}>
+                      <h4 className={styles.body__title}>{project.title}</h4>
+                      <p className="text--light text--clamp">{project.excerpt}</p>
+                    </section>
+                  </div>
+                </li>
+              ))}
             </div>
-          </section>
-        )}
-        {!projects.length > 0 && <p>No projects found</p>}
-      </div>
+          </div>
+        </section>
+      )}
+      {!projects.length > 0 && <p>No projects found</p>}
     </section>
   );
 }

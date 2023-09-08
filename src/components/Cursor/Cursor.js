@@ -13,7 +13,9 @@ export default function Cursor() {
   };
 
   useEffect(() => {
-    document.addEventListener("mousemove", onMouseMove);
+    if (window.innerWidth > 500) {
+      document.addEventListener("mousemove", onMouseMove);
+    }
 
     return () => {
       document.removeEventListener("mousemove", onMouseMove);

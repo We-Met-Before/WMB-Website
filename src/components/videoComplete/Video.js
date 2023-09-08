@@ -8,10 +8,8 @@ const Video = forwardRef(({ src, width = 300, height = 300, poster, autoPlay = t
   if (typeof window !== "undefined") {
     useEffect(() => {
       const hasMediaCapabilities = !!(navigator.mediaCapabilities && navigator.mediaCapabilities.decodingInfo);
-      console.log({ hasMediaCapabilities });
       if (isSafari && hasMediaCapabilities) {
         setUseM4V(true);
-        console.log("use m4v");
       }
     }, [navigator]);
   }

@@ -12,6 +12,12 @@
     margin-right: $grid--gutter;
   }
 
+  @include break("sm", "max") {
+    max-width: calc(100% - $grid--gutter*.75 - $grid--gutter*.75);
+    margin-left: $grid--gutter*.75;
+    margin-right: $grid--gutter*.75;
+  }
+
   &--full {
     @extend .container;
     max-width: calc(100% - $grid--gutter - $grid--gutter);

@@ -16,6 +16,10 @@
   align-items: center;
   overflow: hidden;
 
+  @include break("sm", "max") {
+    display: none;
+  }
+
   &--active {
     box-shadow: none;
     transform: scale(3);
