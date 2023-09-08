@@ -11,6 +11,7 @@
   transition: background-color 0.5s $transition--bezier-timing;
   position: relative;
   width: 100%;
+  background-color: color(black, base);
 
   & > * {
     mix-blend-mode: difference;

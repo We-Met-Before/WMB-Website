@@ -6,6 +6,20 @@
   height: 100%;
   z-index: -1;
   overflow: hidden;
+
+  &--gradient {
+    @extend .backdrop;
+    width: 600px;
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    background-image: url("/images/shape_0002_SHAPE-3.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    filter: blur(40px);
+  }
   &--media {
     @extend .backdrop;
 

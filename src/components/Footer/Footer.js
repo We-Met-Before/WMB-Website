@@ -8,6 +8,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer} id="contact">
       <div className="container">
+        <div className="backdrop--gradient"></div>
         <h2 className="text--center">(4) Ways to get in touch</h2>
 
         <ul className={styles.list}>

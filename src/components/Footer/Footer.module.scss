@@ -6,9 +6,9 @@
   align-items: center;
   min-height: 80vh;
   margin: $gutter--xl 0;
+  position: relative;
 
   @include break("sm", "min") {
-    
   }
 }
 
@@ -25,4 +25,3 @@
     gap: $gutter--sm;
   }
 }
-

@@ -93,7 +93,6 @@ export default function WorkList({ projects }) {
         },
       },
     }).mount({ AutoScroll, Intersection });
-  // }).mount();
 
     splide.on("active", (e) => {
       setTargetSlide(e.slideIndex < 0 ? e.index : e.slideIndex);
@@ -122,10 +121,12 @@ export default function WorkList({ projects }) {
             </Link>
           </div>
         </header>
+        
       </div>
 
       {projects.length > 0 && (
         <section className={`splide ${styles.slider}`}>
+          <div className="backdrop--gradient" style={{transform: "translate3d(-100%, -0%, 0) scale(1.2)"}}></div>
           <div className="splide__track">
             <div className="splide__list">
               {projects.map((project, index) => (

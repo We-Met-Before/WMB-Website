@@ -152,6 +152,7 @@ export default function IdeasCome() {
 
       <div className={styles.inner}>
         <div className="container text--center">
+        <div className="backdrop--gradient" style={{transform: "translate3d(-20%, -50%, 0) scale(1.2)"}}></div>
           <div className={styles.content}>
             <h1 className={styles.title}>
               <span className="text--line">Where</span>
