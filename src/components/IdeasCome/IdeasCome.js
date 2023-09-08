@@ -1,6 +1,6 @@
 "use client";
 
-import { gsap } from "gsap";
+import { SteppedEase, gsap } from "gsap";
 import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
@@ -8,33 +8,13 @@ import { useExtLoaderContext } from "../../root/loader";
 import styles from "./IdeasCome.module.scss";
 
 export default function IdeasCome() {
-  const titleRef = useRef(null);
+  const titleRef = useRef([]);
   const bgRef = useRef(null);
   const imageOfRef = useRef(null);
   const wrapperRef = useRef(null);
   const [hasScrollTrigger] = useExtLoaderContext();
-
-  useEffect(() => {
-    const animation = {
-      duration: 0.5,
-      repeat: -1,
-      yoyo: true,
-      repeatDelay: 2,
-      ease: "Power2.easeInOut",
-    };
-    const children = titleRef.current.children;
-
-    gsap.set(children[0], { y: "0%", opacity: 1 });
-    gsap.set(children[1], { y: "100%", opacity: 0 });
-
-    gsap.to(children[1], { ...animation, y: "0%", opacity: 1 });
-    gsap.to(children[0], { ...animation, y: "-100%", opacity: 0 });
-
-    return () => {
-      gsap.killTweensOf(children[0]);
-      gsap.killTweensOf(children[1]);
-    };
-  }, [titleRef]);
+  const [hasSplitText] = useExtLoaderContext(false);
+  const cursorRef = useRef(null);
 
   useEffect(() => {
     if (hasScrollTrigger) {
@@ -75,6 +55,94 @@ export default function IdeasCome() {
     }
   }, [hasScrollTrigger]);
 
+  useEffect(() => {
+    if (titleRef.current && hasSplitText) {
+      gsap.registerPlugin(SplitText);
+
+      var tl = gsap.timeline({
+        repeat: -1
+      });
+      
+
+      const chars0 = new SplitText(titleRef.current[0], {
+        type: "words,chars",
+      }).chars;
+
+      const chars1 = new SplitText(titleRef.current[1], {
+        type: "words,chars",
+      }).chars;
+
+      // gsap.set(chars0, {display: 'inline-block'});
+      // gsap.set(chars1, {display: 'inline-block'});
+
+      gsap.set(chars0, {display: 'none'});
+      gsap.set(chars1, {display: 'none'});
+
+      tl.to(chars0, {
+        display: 'inline-block', 
+        stagger: .1
+      })
+
+      gsap.to(cursorRef.current, {
+        backgroundColor: "rgba(255,255,255,0.75)",
+        repeat: -1
+      })
+   
+      tl.to(chars0, {
+        display: 'none', 
+        stagger: .1
+      })
+
+      tl.to(chars1, {
+        display: 'inline-block', 
+        stagger: .1
+      })
+
+      tl.to(chars1, {
+        display: 'none', 
+        stagger: .1
+      })
+
+      // gsap.fromTo(
+      //   chars,
+      //   {
+      //     display: "none",
+      //   },
+      //   {
+      //     display: "inline-block",
+      //     repeat: -1,
+      //     delay: 1,
+      //     repeatDelay: 1,
+      //     yoyo: true,
+      //     stagger: 0.1,
+      //   }
+      // );
+      // tl.from(chars, {
+      //   y: "100%",
+      //   opacity: 0,
+      //   duration: 1,
+      //   ease: "Power3.easeOut",
+      //   stagger: 0.018,
+      //   delay: 1,
+      // });
+
+      // tl.from(
+      //   bodyRef.current,
+      //   {
+      //     opacity: 0,
+      //     y: 32,
+      //     delay: 0,
+      //     duration: 1,
+      //     stagger: 1,
+      //   },
+      //   "1.5"
+      // );
+
+      return () => {
+        tl.kill();
+      };
+    }
+  }, [hasSplitText]);
   return (
     <section className={styles.wrapper} ref={wrapperRef}>
       <div className="backdrop--media" ref={bgRef}>
@@ -88,9 +156,17 @@ export default function IdeasCome() {
             <h1 className={styles.title}>
               <span className="text--line">Where</span>
               <span className="text--line flex">
-                <span className={styles.alternating} ref={titleRef}>
-                  <span className={styles.alternating__first}>ideas</span>
-                  <span className={styles.alternating__second}>we</span>
+                <span className={styles.alternating}>
+                  <span ref={(el) => (titleRef.current[0] = el)} className={styles.alternating__first}>
+                    ideas
+                  </span>
+
+                  <span ref={(el) => (titleRef.current[1] = el)} className={styles.alternating__second}>
+                    we
+                  </span>
+
+                  <span className={styles.cursor} ref={cursorRef}></span>
+                  
                 </span>
                 <span>come</span>
               </span>

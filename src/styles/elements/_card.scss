@@ -20,28 +20,8 @@
     cursor: pointer;
     overflow: hidden;
 
-    & > * {
-      mix-blend-mode: difference;
-    }
-
-    &:before {
-      content: '';
-      position: absolute;
-      top:0;
-      width: 100%;
-      height: 100%;
-      background-color: white;
-      left: 0;
-      transform: translate3d(0, 110%, 0);
-      transition: transform .3s $transition--bezier-timing;
-      z-index: -1;
-    }
-
     &:hover {
-
-      &:before {
-        transform: translate3d(0,0,0);
-      }
+      background-color: color(white, base);
     }
   }
 

@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 export default function Portfolio({ portfolioItems }) {
   useEffect(() => {
-    console.log({ portfolioItems });
+    
   }, [portfolioItems]);
   return (
     <section id="anchorWork" className="mbPortfolio">

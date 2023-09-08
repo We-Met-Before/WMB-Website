@@ -15,7 +15,7 @@ const cn = classNames.bind(styles);
 export default function Hero() {
   const titleRef = useRef([]);
   const bodyRef = useRef(null);
-  
+
   const [hasSplitText] = useExtLoaderContext(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -24,7 +24,7 @@ export default function Hero() {
 
     return () => {
       rellax.destroy();
-    }
+    };
   }, [Rellax]);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function Hero() {
         duration: 1,
         ease: "Power3.easeOut",
         stagger: 0.018,
-        delay: 1.5,
+        delay: 1,
       });
 
       tl.from(
@@ -57,7 +57,7 @@ export default function Hero() {
           duration: 1,
           stagger: 1,
         },
-        "4"
+        "1.5"
       );
 
       return () => {
@@ -67,38 +67,34 @@ export default function Hero() {
   }, [hasSplitText]);
 
   return (
-    <header className={`${styles.hero} ${isAnimating ? styles['hero--is-animating'] : ''}`}>
-      <div className={`${styles.bg} rellax`}>
-        <VideoComplete
-          src={"videos/Header_Cropped_WEBM"}
-          loop={"videos/Header_Heartbeat_Cropped_WEBM"}
-        />
+    <header className={`${styles.hero} ${isAnimating ? styles["hero--is-animating"] : ""}`}>
+      <div className={`${styles.bg} rellax`} data-rellax-speed="-4">
+        <VideoComplete src={"videos/Header_Cropped_WEBM"} loop={"videos/Header_Heartbeat_Cropped_WEBM"} />
       </div>
 
       <div className={styles.content}>
-        <h1
-          className={cn(styles.title, "rellax")}
-          data-rellax-speed="2"
-        >
-          <span ref={el => titleRef.current[0] = el} className={`${styles.title__line} text--left`}>Because</span>
-          <span ref={el => titleRef.current[1] = el} className={`${styles.title__line} text--center`}>we met</span>
-          <span ref={el => titleRef.current[2] = el} className={`${styles.title__line} text--right`}>before</span>
+        <h1 className={styles.title}>
+          <span ref={(el) => (titleRef.current[0] = el)} className={`${styles.title__line} text--left`}>
+            Because
+          </span>
+          <span ref={(el) => (titleRef.current[1] = el)} className={`${styles.title__line} text--center`}>
+            we met
+          </span>
+          <span ref={(el) => (titleRef.current[2] = el)} className={`${styles.title__line} text--right`}>
+            before
+          </span>
         </h1>
 
-        <h1 className={styles["title--mobile"]}>
+        <h1 className={styles["title--mobile"]} ref={(el) => (titleRef.current[3] = el)}>
           Because we met before
         </h1>
         <div
-          className={cn(styles.body, "rellax", {
+          className={cn(styles.body, {
             "o--0": !isAnimating,
           })}
           ref={bodyRef}
-          data-rellax-speed="1"
         >
-          <p className="text--light">
-            Based on your Visual Identity and/or brandguide we start creating a
-            webdesign and forge your vision into an online pressence.
-          </p>
+          <p className="text--light">Based on your Visual Identity and/or brandguide we start creating a webdesign and forge your vision into an online pressence.</p>
 
           <Link className="hero__cta button" href="#more">
             <span className="button__label">More</span>

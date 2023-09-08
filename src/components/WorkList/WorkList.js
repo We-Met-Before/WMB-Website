@@ -69,7 +69,7 @@ export default function WorkList({ projects }) {
 
     const splide = new Splide(".splide", {
       type: "loop",
-      fixedWidth: "400px",
+      fixedWidth: (window.innerWidth/4),
       arrows: false,
       focus: "center",
       pagination: false,

@@ -6,6 +6,8 @@ import html from "remark-html";
 
 export const DIR_PROJECTS = "_content/projects";
 export const DIR_PEOPLE = "_content/people";
+export const DIR_SERVICES = "_content/services";
+
 
 export async function getPostById(id, source) {
   if(!source) source = DIR_PROJECTS;
@@ -23,17 +25,12 @@ export async function getPostById(id, source) {
     .use(html)
     .process(matterResult.content);
 
-
   return {
     ...matterResult.data,
     title: data.title,
     id: realId,
     content: processedContent.toString()
   };
-}
-
-export async function getAllPosts() {
-  return [];
 }
 
 export async function getAllProjects() {
@@ -43,6 +40,13 @@ export async function getAllProjects() {
     })
   );
   return projects;
+}
+export async function getAllServices() {
+  const files = await fs.promises.readdir(DIR_SERVICES);
+  const services = await Promise.all(
+    files.map((id) => getPostById(id, DIR_SERVICES))
+  );
+  return services;
 }
 
 export async function getAllPeople() {

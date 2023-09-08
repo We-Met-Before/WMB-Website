@@ -27,7 +27,7 @@ $font-size--h1: 4.75rem;
 $font-size--break-sizing: 0.8;
 
 $font-weight--light: 300;
-$font-weight--base: 400;
+$font-weight--base: 300;
 $font-weight--bold: 700;
 $font-weight--display: 300;
 $font-weight--heading: 600;
@@ -50,6 +50,14 @@ $headings: $heading_1 + ", " + $heading_2 + ", " + $heading_3 + ", " +
 	'Neue Haas Grotesk',
 	'/fonts/NeueHaas/NeueHaasDisplayMediu',
 	$font-weight--heading
+);
+
+
+
+@include font(
+	'Neue Haas Grotesk',
+	'/fonts/NeueHaas/NeueHaasDisplayLight',
+	$font-weight--base
 );
 
 

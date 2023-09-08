@@ -25,6 +25,7 @@ $logo--base: 3.125rem;
 $icon-url: '/icons/';
 $icon-size--base: 1em;
 $icon-size--lg: $icon-size--base * 1.5;
+$icon-size--xl: $icon-size--base * 4;
 $icon-size--sm: $icon-size--base * 0.75;
 $icon-color: call(get-function('color'), primary, base);
 $icon-color--light: call(get-function('color'), light, base);

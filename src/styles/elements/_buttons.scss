@@ -3,16 +3,16 @@ $buttons: "input[type='button'], input[type='reset'], input[type='submit']";
 .button,
 #{$buttons},
 %button {
-  font-family: inherit;
+  font-family: 'Neue Haas Grotesk';
+
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: $font-weight--heading;
   display: inline-flex !important;
   justify-content: center;
   align-items: center;
   padding: $gutter--sm * 1.5 $gutter--md;
   cursor: pointer;
   transition: $transition--bezier;
-  font-weight: 600;
   border: none;
   position: relative;
   background: transparent;
@@ -24,25 +24,8 @@ $buttons: "input[type='button'], input[type='reset'], input[type='submit']";
   cursor: pointer;
   overflow: hidden;
   
-  & > * {
-	  mix-blend-mode: difference;
-    
-  }
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    left: 0;
-    transform: translate3d(0, 100%, 0);
-    transition: transform 0.3s $transition--bezier-timing;
-    z-index: -1;
-  }
-
   &:hover {
+    background-color: white;
     &:before {
       transform: translate3d(0, 0, 0);
     }

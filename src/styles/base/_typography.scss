@@ -23,7 +23,7 @@ html {
 
   @include break("sm", "max") {
     --font-size--h2: #{$font-size--h2 * 0.6};
-    --font-size--h1: #{$font-size--h2 / 2};
+    --font-size--h1: 2.5rem;
   }
 
   @include break("lg", "min") {
@@ -44,7 +44,7 @@ body {
   font-weight: $font-weight--heading;
   margin: 0 0;
   color: $color--text-heading;
-  overflow-wrap: break-word;
+  
   hyphens: auto;
 }
 
@@ -73,6 +73,10 @@ h1,
   font-size: var(--font-size--h1);
   font-weight: 300;
   line-height: 1;
+
+  @include break("sm", "max") {
+    line-height: $line-height--heading;
+  }
 }
 
 h2,

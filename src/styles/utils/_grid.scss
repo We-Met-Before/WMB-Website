@@ -7,7 +7,7 @@
   width: 100%;
 
   @media only screen and (max-width: $grid--container) {
-    max-width: calc(100% - $grid--gutter - $grid--gutter);;
+    max-width: calc(100% - $grid--gutter - $grid--gutter);
     margin-left: $grid--gutter;
     margin-right: $grid--gutter;
   }
@@ -20,11 +20,11 @@
   }
 }
 
-
 .container--offset {
-  margin-left: $gutter--md;
-    margin-right: $gutter--md;
-  @media only screen and (min-width: calc(#{$grid--container} + #{$gutter--xl*2})) {
+  margin-left: $gutter--xl;
+  margin-right: $gutter--xl;
+  width: calc(100% - #{$gutter--xl*2});
+  @media only screen and (min-width: calc(#{$grid--container} + #{$gutter--xl*4})) {
     margin-left: $gutter--xl;
     margin-right: $gutter--xl;
   }
