@@ -12,8 +12,8 @@
   position: relative;
   width: 100%;
 
-  .badge {
-    align-self: flex-end;
+  & > * {
+    mix-blend-mode: difference;
   }
 
   @at-root a#{&} {

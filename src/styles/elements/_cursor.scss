@@ -39,15 +39,6 @@ body:has(.cursor-trigger:hover) .cursor {
     @extend .cursor__icon--active;
   }
 }
-
-body:has(.is-next:hover) .cursor {
-
-  .cursor__icon {
-    @extend .icon--forward !optional;
-  }
-}
-
-
 body:has(.is-prev:hover) .cursor {
 
   .cursor__icon {

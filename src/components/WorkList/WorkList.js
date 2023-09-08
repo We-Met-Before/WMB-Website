@@ -71,7 +71,6 @@ export default function WorkList({ projects }) {
       type: "loop",
       fixedWidth: (window.innerWidth/4),
       arrows: false,
-      focus: "center",
       pagination: false,
       perMove: 1,
       gap: "4rem",
@@ -101,7 +100,7 @@ export default function WorkList({ projects }) {
   }, [projects]);
 
   return (
-    <section className={styles.wrapper}>
+    <section className={styles.wrapper} id="work">
       <div className="container--offset">
         <h1 className={styles.title}>Work</h1>
         <header className={styles.header}>
@@ -120,7 +119,7 @@ export default function WorkList({ projects }) {
               <div className="splide__list">
                 {projects.map((project, index) => (
                   <li
-                    className={`${styles.slide} splide__slide ${targetSlide == index && styles["slide--active"]}`}
+                    className={`${styles.slide} splide__slide`}
                     key={index}
                     onClick={() => {
                       openPage(index);
@@ -133,7 +132,7 @@ export default function WorkList({ projects }) {
                           slideImagesRef.current[index] = element;
                         }}
                       >
-                        <ExportedImage src={project.image} fill={true} alt="" />
+                        <ExportedImage src={project.image} fill={true} placeholer="empty" alt="" />
                       </div>
                       <section className={styles.body}>
                         <h4 className={styles.body__title}>{project.title}</h4>
