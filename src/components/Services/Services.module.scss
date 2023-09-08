@@ -8,6 +8,7 @@
   @include break("sm", "max") {
     margin: 0 $grid--gutter * -1;
     width: calc(100% + #{$grid--gutter * 2});
+    padding: $grid--gutter;
   }
 
   &__content {
@@ -32,12 +33,15 @@
 .list {
   margin-top: $gutter--lg;
   margin-bottom: $gutter--lg;
-  min-height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-width: $grid--container/2;
   width: 100%;
+
+  @include break("sm", "min") {
+    min-height: 600px;
+  }
 }
 
 .visual {

@@ -172,12 +172,14 @@ export default function IdeasCome() {
               </span>
               <span className="text--line">together.</span>
             </h1>
-            <p className="article--description">
+            <p className="article--description d--none--sm">
               If paths cross on the right moment you feel a source of euforic energy flowing through your body. Let us make sure your idea makes people feel the same way.
             </p>
-            <Link href="#work" className="button">
-              <span className="button__label">outcome</span>
-            </Link>
+            <div className="d--none--sm">
+              <Link href="#work" className="button">
+                <span className="button__label">outcome</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

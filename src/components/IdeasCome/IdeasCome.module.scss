@@ -4,6 +4,7 @@
 .wrapper {
   position: relative;
   padding-top: 100%;
+  min-height: 100svh;
 }
 
 .inner {
@@ -25,11 +26,7 @@
   min-width: 4ch;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-
-  
-
-  
+  justify-content: flex-end;  
 }
 
 .cursor {

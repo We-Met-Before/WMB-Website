@@ -31,7 +31,16 @@
   &:hover img {
     transform: scale(1.07);
   }
+  @include break("sm", "max") {
+    img {
+      transform: scale(1.05);
+    }
 
+    .body {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
   &:hover {
     img {
       transform: scale(1.05);

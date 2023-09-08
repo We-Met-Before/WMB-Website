@@ -66,10 +66,10 @@ export default function WorkList({ projects }) {
 
   useEffect(() => {
     setTargetSlide(0);
-
+    
     const splide = new Splide(".splide", {
       type: "loop",
-      fixedWidth: (window.innerWidth/4),
+      fixedWidth:  window.innerWidth > 800 ? "22vw" : "80vw",
       arrows: false,
       pagination: false,
       perMove: 1,
