@@ -169,7 +169,7 @@ export default function Services({ items }) {
               {items.map(
                 (item, i) =>
                   item.visual && (
-                    <li key={i} className={styles.listitem} onClick={() => onClickVisual(i)}>
+                    <li key={i} className={styles.listitem} onMouseEnter={() => onClickVisual(i)}>
                       <div
                         className={styles.astroid}
                         ref={(element) => {
