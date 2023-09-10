@@ -5,14 +5,12 @@ import { isSafari } from "react-device-detect";
 const Video = forwardRef(({ src, width = 300, height = 300, poster, autoPlay = true, loop = false }, ref) => {
   const [useM4V, setUseM4V] = useState(false);
 
-  if (typeof window !== "undefined") {
-    useEffect(() => {
-      const hasMediaCapabilities = !!(navigator.mediaCapabilities && navigator.mediaCapabilities.decodingInfo);
-      if (isSafari && hasMediaCapabilities) {
-        setUseM4V(true);
-      }
-    });
-  }
+  useEffect(() => {
+    const hasMediaCapabilities = !!(navigator.mediaCapabilities && navigator.mediaCapabilities.decodingInfo);
+    if (isSafari && hasMediaCapabilities) {
+      setUseM4V(true);
+    }
+  });
 
   return (
     <video width={width} height={height} poster={poster} autoPlay={autoPlay} loop={loop} muted playsInline ref={ref}>
