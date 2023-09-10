@@ -12,6 +12,21 @@
     display: flex;
     justify-content: space-between;
   }
+
+  &__link {
+    padding: $gutter--sm 0;
+    color: inherit;
+    text-decoration: none;
+    opacity: 1;
+    transition: $transition--bezier;
+
+    &:hover {
+      opacity: 0.3;
+    }
+    &:not(:last-child):after {
+      content: ", ";
+    }
+  }
 }
 
 .button {
@@ -114,5 +129,21 @@
   &__link {
     margin: $gutter--sm 0;
     padding: $gutter--md;
+  }
+}
+
+.branding {
+  color: color(white, beige);
+  text-align: right;
+  margin: $gutter--sm 0;
+
+  @include break("sm", "max") {
+    font-size: $font-size--md;
+  }
+
+  span:last-child {
+    opacity: 0.3;
+    font-weight: $font-weight--light;
+    margin-left: $gutter--sm;
   }
 }

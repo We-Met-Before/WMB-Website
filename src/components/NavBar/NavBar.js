@@ -14,7 +14,7 @@ export default function NavBar() {
   return (
     <>
       <nav className={styles.navbar}>
-        <div className="hero__branding branding--text">
+        <div className={styles.branding}>
           <span>WMB</span>
           <span>Creative Studio</span>
         </div>
@@ -28,16 +28,16 @@ export default function NavBar() {
         </button>
 
         <ul className="hero__nav nav d--none--sm">
-          <Link className="nav__link" href="#services">
+          <Link className={styles.navbar__link} href="/#services">
             Services
           </Link>
-          <a className="nav__link" href="/about">
+          <a className={styles.navbar__link} href="/about">
             About
           </a>
-          <Link className="nav__link" href="#work">
+          <Link className={styles.navbar__link} href="#work">
             Work
           </Link>
-          <Link className="nav__link" href="#contact">
+          <Link className={styles.navbar__link} href="#contact">
             Contact
           </Link>
         </ul>

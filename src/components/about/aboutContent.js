@@ -6,6 +6,7 @@ import Link from "next/link";
 import Script from "next/script";
 import { useEffect, useState } from "react";
 import Portfolio from "./portfolio";
+import NavBar from "../NavBar/NavBar";
 
 function AboutContent({portfolioItems}) {
   const [isMobile, setIsMobile] = useState(false);
@@ -931,7 +932,9 @@ function AboutContent({portfolioItems}) {
             />
           </Link>
 
-          <nav className="mbNavMenu">
+          <NavBar />
+
+          <nav className="mbNavMenu" style={{display: "none"}}>
             <ul className="mbNavList">
               <li className="mbNavItem">
                 <button className="mbNavButton" onClick={() => goTo(1)}>
