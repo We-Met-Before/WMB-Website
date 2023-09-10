@@ -1,15 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useProjectContext } from "../../root/project";
-import { usePathname } from "next/navigation";
-import Image from "next/image";
-import styles from "./HeroProject.module.scss";
-import classNames from "classnames";
-import Rellax from "rellax";
 import ExportedImage from "next-image-export-optimizer";
-
-const cn = classNames.bind(styles);
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import Rellax from "rellax";
+import { useProjectContext } from "../../root/project";
+import styles from "./HeroProject.module.scss";
 
 export default function HeroProject({ image, alt, inline }) {
   const [project, setProject] = useProjectContext();
@@ -22,7 +18,7 @@ export default function HeroProject({ image, alt, inline }) {
     return () => {
       rellax.destroy();
     };
-  }, [Rellax]);
+  });
 
   useEffect(() => {
     if (!pathname.includes(project?.id)) {

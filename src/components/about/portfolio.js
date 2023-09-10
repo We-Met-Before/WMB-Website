@@ -1,12 +1,9 @@
 import ExportedImage from "next-image-export-optimizer";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 
 export default function Portfolio({ portfolioItems }) {
-  useEffect(() => {
-    
-  }, [portfolioItems]);
+  
   return (
     <section id="anchorWork" className="mbPortfolio">
       {portfolioItems.length > 0 && (

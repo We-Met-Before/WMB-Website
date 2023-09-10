@@ -11,7 +11,7 @@ const Video = forwardRef(({ src, width = 300, height = 300, poster, autoPlay = t
       if (isSafari && hasMediaCapabilities) {
         setUseM4V(true);
       }
-    }, [navigator]);
+    });
   }
 
   return (

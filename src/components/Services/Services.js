@@ -71,7 +71,7 @@ export default function Services({ items }) {
         gsap.killTweensOf(item);
       });
     };
-  }, [skillsWrapRefs, active]);
+  }, [skillsWrapRefs, active, items]);
 
   // float the refs in space
   useEffect(() => {

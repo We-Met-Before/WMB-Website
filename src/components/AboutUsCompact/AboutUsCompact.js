@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import styles from "./AboutUsCompact.module.scss";
-import { useEffect, useState } from "react";
 import ExportedImage from "next-image-export-optimizer";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import styles from "./AboutUsCompact.module.scss";
 
 export default function AboutUsCompact({ people }) {
   const [list, setList] = useState([]);

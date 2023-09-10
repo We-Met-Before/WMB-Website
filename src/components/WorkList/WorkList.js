@@ -5,13 +5,12 @@ import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import { Intersection } from "@splidejs/splide-extension-intersection";
 import { gsap } from "gsap";
 import { Flip } from "gsap/Flip";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useProjectContext } from "../../root/project";
 import styles from "./WorkList.module.scss";
-import ExportedImage from "next-image-export-optimizer";
 
 export default function WorkList({ projects }) {
   const [targetSlide, setTargetSlide] = useState(0);

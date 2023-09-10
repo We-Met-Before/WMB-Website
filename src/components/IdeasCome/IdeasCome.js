@@ -1,6 +1,6 @@
 "use client";
 
-import { SteppedEase, gsap } from "gsap";
+import { gsap } from "gsap";
 import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
@@ -62,7 +62,6 @@ export default function IdeasCome() {
       var tl = gsap.timeline({
         repeat: -1
       });
-      
 
       const chars0 = new SplitText(titleRef.current[0], {
         type: "words,chars",
@@ -71,9 +70,6 @@ export default function IdeasCome() {
       const chars1 = new SplitText(titleRef.current[1], {
         type: "words,chars",
       }).chars;
-
-      // gsap.set(chars0, {display: 'inline-block'});
-      // gsap.set(chars1, {display: 'inline-block'});
 
       gsap.set(chars0, {display: 'none'});
       gsap.set(chars1, {display: 'none'});
@@ -102,41 +98,6 @@ export default function IdeasCome() {
         display: 'none', 
         stagger: .1
       })
-
-      // gsap.fromTo(
-      //   chars,
-      //   {
-      //     display: "none",
-      //   },
-      //   {
-      //     display: "inline-block",
-      //     repeat: -1,
-      //     delay: 1,
-      //     repeatDelay: 1,
-      //     yoyo: true,
-      //     stagger: 0.1,
-      //   }
-      // );
-      // tl.from(chars, {
-      //   y: "100%",
-      //   opacity: 0,
-      //   duration: 1,
-      //   ease: "Power3.easeOut",
-      //   stagger: 0.018,
-      //   delay: 1,
-      // });
-
-      // tl.from(
-      //   bodyRef.current,
-      //   {
-      //     opacity: 0,
-      //     y: 32,
-      //     delay: 0,
-      //     duration: 1,
-      //     stagger: 1,
-      //   },
-      //   "1.5"
-      // );
 
       return () => {
         tl.kill();

@@ -8,9 +8,6 @@ import { useExtLoaderContext } from "../../root/loader";
 import NavBar from "../NavBar/NavBar";
 import VideoComplete from "../videoComplete/videoComplete";
 import styles from "./Hero.module.scss";
-import classNames from "classnames";
-
-const cn = classNames.bind(styles);
 
 export default function Hero() {
   const titleRef = useRef([]);
@@ -25,7 +22,7 @@ export default function Hero() {
     return () => {
       rellax.destroy();
     };
-  }, [Rellax]);
+  });
 
   useEffect(() => {
     if (titleRef.current && hasSplitText) {
@@ -89,9 +86,7 @@ export default function Hero() {
           Because we met before
         </h1>
         <div
-          className={cn(styles.body, {
-            "o--0": !isAnimating,
-          })}
+        className={`${styles.body} ${isAnimating ? '' : "o--0"}`}
           ref={bodyRef}
         >
           <p className="text--light">Based on your Visual Identity and/or brandguide we start creating a webdesign and forge your vision into an online pressence.</p>
