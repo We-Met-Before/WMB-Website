@@ -1,17 +1,39 @@
-@mixin font($font-family, $font-file, $font-weight) {
-  @debug $font-file + ".woff";
-  @font-face {
-    font-family: $font-family;
-    src: url($font-file + ".eot?") format("eot"),
-      url($font-file + ".woff2") format("woff2"),
-      url($font-file + ".woff") format("woff"),
-      url($font-file + ".ttf") format("truetype"),
-      url($font-file + ".svg" + $font-family) format("svg");
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
 
-    font-weight: $font-weight;
-    font-style: normal;
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+@mixin font($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
     font-display: fallback;
-  }
+	}
 }
 
 $font-size--base: 1.125rem;
@@ -48,37 +70,46 @@ $headings: $heading_1 + ", " + $heading_2 + ", " + $heading_3 + ", " +
   $heading_4 + ", " + $heading_5 + ", " + $heading_6;
 
 @include font(
-	'Neue Haas Grotesk',
-	'/fonts/NeueHaas/NeueHaasDisplayMediu',
-	$font-weight--heading
+  'Neue Haas Grotesk', 
+  '/fonts/NeueHaas/NeueHaasDisplayMediu', 
+  $font-weight--heading, 
+  normal, 
+  eot ttf
 );
-
 
 
 @include font(
 	'Neue Haas Grotesk',
 	'/fonts/NeueHaas/NeueHaasDisplayLight',
-	$font-weight--base
+  $font-weight--heading, 
+  normal, 
+  eot ttf
 );
 
 
 @include font(
 	'PolySans',
 	'/fonts/PolySans-Slim-web/PolySans-Slim',
-	$font-weight--display
+	$font-weight--display,
+  normal, 
+  eot woff woff2
 );
 
 
 @include font(
   "SequelSans",
   "/fonts/SequelSans/Sequel_Sans_Book_Body",
-  $font-weight--base
+  $font-weight--base,
+  normal, 
+  eot otf ttf
 );
 
 @include font(
   "SequelSans",
   "/fonts/SequelSans/Sequel_Sans_Bold_Body",
-  $font-weight--bold
+  $font-weight--bold,
+  normal, 
+  eot otf ttf
 );
 
 // @include font(

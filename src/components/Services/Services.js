@@ -5,38 +5,36 @@ import { useEffect, useRef, useState } from "react";
 import { useExtLoaderContext } from "../../root/loader";
 import Video from "../videoComplete/Video";
 import styles from "./Services.module.scss";
+import { ScrollTrigger } from "gsap/all";
 
 export default function Services({ items }) {
   const [active, setActive] = useState(0);
-  const [hasScrollTrigger] = useExtLoaderContext();
   const astroidWrapRef = useRef();
   const astroidRefs = useRef([]);
   const videoRefs = useRef([]);
   const skillsRefs = useRef([]);
   const skillsWrapRefs = useRef([]);
-
+  
   // scroll videos on enter view
   useEffect(() => {
-    if (hasScrollTrigger) {
-      gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
 
-      videoRefs.current.forEach((video) => {
-        gsap.to(video, {
-          scrollTrigger: {
-            trigger: video,
-            start: "top center+=25%",
-            onEnter: () => video.play(),
-          },
-        });
+    videoRefs.current.forEach((video) => {
+      gsap.to(video, {
+        scrollTrigger: {
+          trigger: video,
+          start: "top center+=25%",
+          onEnter: () => video.play(),
+        },
       });
-    }
+    });
 
     return () => {
       videoRefs.current.forEach((video) => {
         gsap.killTweensOf(video);
       });
     };
-  }, [hasScrollTrigger, videoRefs]);
+  }, [videoRefs]);
 
   const onClickVisual = (index) => {
     videoRefs.current[index].pause();

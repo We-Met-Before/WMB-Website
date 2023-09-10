@@ -8,21 +8,38 @@ import { useExtLoaderContext } from "../../root/loader";
 import NavBar from "../NavBar/NavBar";
 import VideoComplete from "../videoComplete/videoComplete";
 import styles from "./Hero.module.scss";
+import { ScrollTrigger } from "gsap/all";
 
 export default function Hero() {
   const titleRef = useRef([]);
   const bodyRef = useRef(null);
+  const bgRef = useRef(null);
 
   const [hasSplitText] = useExtLoaderContext(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
-    var rellax = Rellax(".rellax");
+    gsap.registerPlugin(ScrollTrigger);
+    
+    gsap.set(bgRef.current, {
+      y: (i, el) => .75 * ScrollTrigger.maxScroll(window),
+    });
+
+    gsap.to(bgRef.current, {
+      y: (i, el) => .75 * ScrollTrigger.maxScroll(window),
+      ease: "none",
+      scrollTrigger: {
+        start: 0,
+        end: "max",
+        invalidateOnRefresh: true,
+        scrub: 0,
+      },
+    });
 
     return () => {
-      rellax.destroy();
+      gsap.killTweensOf(bgRef.current);
     };
-  });
+  }, [bgRef]);
 
   useEffect(() => {
     if (titleRef.current && hasSplitText) {
@@ -65,7 +82,7 @@ export default function Hero() {
 
   return (
     <header className={`${styles.hero} ${isAnimating ? styles["hero--is-animating"] : ""}`}>
-      <div className={`${styles.bg} rellax`} data-rellax-speed="-4">
+      <div className={`${styles.bg} rellax`} data-rellax-speed="-4" ref={bgRef}>
         <VideoComplete src={"videos/Header_Cropped_WEBM"} loop={"videos/Header_Heartbeat_Cropped_WEBM"} />
       </div>
 
@@ -85,10 +102,7 @@ export default function Hero() {
         <h1 className={styles["title--mobile"]} ref={(el) => (titleRef.current[3] = el)}>
           Because we met before
         </h1>
-        <div
-        className={`${styles.body} ${isAnimating ? '' : "o--0"}`}
-          ref={bodyRef}
-        >
+        <div className={`${styles.body} ${isAnimating ? "" : "o--0"}`} ref={bodyRef}>
           <p className="text--light">Based on your Visual Identity and/or brandguide we start creating a webdesign and forge your vision into an online pressence.</p>
 
           <Link className="hero__cta button" href="#more">
