@@ -66,6 +66,16 @@ export default function WorkList({ projects }) {
   useEffect(() => {
     setTargetSlide(0);
 
+    let fw = "80vw";
+    if(window.innerWidth > 800) {
+      fw = "30vw";
+    }
+    if(window.innerWidth > 1000) {
+      fw = "30vw";
+    }
+
+
+
     const splide = new Splide(".splide", {
       type: "loop",
       fixedWidth: window.innerWidth > 800 ? "30vw" : "80vw",

@@ -79,11 +79,10 @@
   border-radius: $gutter--sm;
   overflow: hidden;
   position: relative;
-  min-height: 700px;
+  // min-height: 500px;
+  padding-top: (5/4)*100%;
 
-  @include break("sm", "max") {
-    min-height: 400px;
-  }
+  
 
   img {
     object-fit: cover;

@@ -95,8 +95,7 @@
   overflow: hidden;
   z-index: -1;
   pointer-events: none;
-  height: 110%;
-  max-height: 110vh;
+  height: 110vh;
   -webkit-mask-image: -webkit-gradient(linear, left 49%, left 90%, from(rgb(0, 0, 0)), to(rgba(0, 0, 0, 0)));
 
   img,

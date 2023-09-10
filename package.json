@@ -33,7 +33,7 @@
     "vfile-reporter": "^8.1.0"
   },
   "scripts": {
-    "dev": "next dev -H 192.168.1.41",
+    "dev": "next dev",
     "build": "next build && next-image-export-optimizer",
     "start": "next start",
     "lint": "next lint",
