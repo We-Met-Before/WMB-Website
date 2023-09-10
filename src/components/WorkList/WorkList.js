@@ -68,7 +68,7 @@ export default function WorkList({ projects }) {
 
     const splide = new Splide(".splide", {
       type: "loop",
-      fixedWidth: window.innerWidth > 800 ? "22vw" : "80vw",
+      fixedWidth: window.innerWidth > 800 ? "30vw" : "80vw",
       arrows: false,
       pagination: false,
       gap: "4rem",

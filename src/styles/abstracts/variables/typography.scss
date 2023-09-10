@@ -88,9 +88,9 @@ $headings: $heading_1 + ", " + $heading_2 + ", " + $heading_3 + ", " +
 // );
 
 // stylelint-disable value-keyword-case
-$font--main: "SequelSans", Futura, -apple-system, BlinkMacSystemFont, "Segoe UI",
+$font--main: "SequelSans", -apple-system, BlinkMacSystemFont, "Segoe UI",
   Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-$font--heading: "Neue Haas Grotesk", monospace, -apple-system, BlinkMacSystemFont,
+$font--heading: "Neue Haas Grotesk", -apple-system, BlinkMacSystemFont,
   "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
   sans-serif;
 $font--display: "PolySans", -apple-system, BlinkMacSystemFont, "Segoe UI",
