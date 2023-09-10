@@ -21,7 +21,7 @@ export default function Footer() {
             </div>
           </Link>
 
-          <Link href="https://www.instagram.com/wemetbefore.studio/" className={"card cursor-trigger--external"}>
+          <Link href="https://www.instagram.com/wemetbefore.studio/" className={"card cursor-trigger--external"} target="_blank">
             <span className={"badge"}>Most inspiring</span>
 
             <div>
@@ -31,7 +31,7 @@ export default function Footer() {
             </div>
           </Link>
 
-          <Link href="https://nl.linkedin.com/company/wemetbefore" className={"card cursor-trigger--external"}>
+          <Link href="https://nl.linkedin.com/company/wemetbefore" className={"card cursor-trigger--external"} target="_blank">
             <span className={"badge"}>Super formal</span>
 
             <div>
@@ -41,7 +41,7 @@ export default function Footer() {
             </div>
           </Link>
 
-          <Link href="mailto:wemetbefore@info.com" className={"card cursor-trigger--external"}>
+          <Link href="mailto:wemetbefore@info.com" className={"card cursor-trigger--external"} target="_blank">
             <span className={"badge"}>Random updates (nog geen link)</span>
 
             <div>

@@ -37,7 +37,7 @@ export default function NavBar() {
           <Link className="nav__link" href="#work">
             Work
           </Link>
-          <Link className="nav__link" href="contact">
+          <Link className="nav__link" href="#contact">
             Contact
           </Link>
         </ul>
@@ -54,7 +54,7 @@ export default function NavBar() {
                 <Link className={styles.menu__link} href="#work">
                   <h2>Work</h2>
                 </Link>
-                <Link className={styles.menu__link} href="contact">
+                <Link className={styles.menu__link} href="#contact">
                   <h2>Contact</h2>
                 </Link>
               </ul>
